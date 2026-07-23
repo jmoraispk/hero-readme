@@ -34,6 +34,10 @@ Both SMIL and inline-CSS `@keyframes` run in the image's own rendering context
 without script, so both play on GitHub. Prefer whichever is clearer for the
 effect; you can mix them.
 
+SVG **filters** render too (`feGaussianBlur`, `feTurbulence`, `feMerge`, …), and
+you can animate a filter attribute with SMIL — e.g. animating `feTurbulence`'s
+`baseFrequency` for a shader-like plasma. Used by `background-effects.md`.
+
 ```svg
 <!-- CSS keyframes: a gradient sweep that loops forever, no script -->
 <style>

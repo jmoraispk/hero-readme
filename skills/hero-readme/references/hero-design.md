@@ -57,6 +57,15 @@ they're subtle and 2–3 stops; garish when rainbow.
 - Font portability: safe stack for editability, or text-to-path for an exact
   display face (see constraints file).
 
+## Step 4b — Background effect (required)
+
+Every hero gets a subtle animated background effect behind the content — this is
+what separates a crafted hero from a placeholder. Default to a **self-contained
+dark banner** (`~#0d1117`) so the effect's colors pop and the banner reads on
+both GitHub themes. Pick ONE effect (flow-field streaks, twinkling particles,
+aurora blobs, or plasma), color it from the project palette, keep it low-opacity,
+and put a scrim over the text. Full techniques and code: `background-effects.md`.
+
 ## Step 5 — Motion with taste
 
 Motion should feel intentional and calm, never a demo reel.
@@ -74,9 +83,12 @@ Motion should feel intentional and calm, never a demo reel.
 ## Composition checklist
 
 - [ ] Banner aspect ~2.5:1–4:1, generous margins, nothing clipped at the edges.
+- [ ] Has a background effect behind the content (required), under a scrim.
 - [ ] Legible when scaled down (README width on a phone).
 - [ ] Real name present and correctly spelled; tagline is honest.
 - [ ] Balanced — clear focal point, not centered-everything mush.
+
+Then render it and run the **self-review loop** in `SKILL.md` before wiring it in.
 
 ## Authenticity gate (the whole point)
 

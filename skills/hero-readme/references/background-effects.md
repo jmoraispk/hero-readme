@@ -114,6 +114,25 @@ Wherever text sits over the effect, put a gradient rect between them:
 Text on the left → scrim strong on the left, clearing to the right where the
 effect breathes (behind/around a concept-motif card). Flip for right-aligned text.
 
+## Vary the effect per project (do not default to the flow-field)
+
+The effect should suit what the repo *does*; reusing one effect everywhere is the
+template trap. Beyond the four above, invent from a wide palette of GitHub-safe
+motions (pure CSS/SMIL/filters):
+
+- **reaction–diffusion / metaballs** — organic blobs merging (`feTurbulence` +
+  `feDisplacementMap`, or blurred circles) — fluid, graphics, generative, AI.
+- **boids / particle swarm** — many dots drifting along a field — data, networks.
+- **digital rain / scanline** — falling glyph columns or a sweeping scan bar —
+  terminals, security, OCR, recorders.
+- **starfield / warp** — points streaking from a vanishing point — speed, perf.
+- **mesh-gradient drift** — large soft color regions morphing — design, theming.
+- **grid / dot-matrix pulse** — a lattice breathing — infra, databases, tables.
+- **waveform / equalizer** — bars rising and falling — audio, streaming, metrics.
+
+Pick or combine what echoes the project, then recolor to its brand. Aim so that no
+two heroes share a background.
+
 ## Taste rules
 
 - **Effect colors come from the project palette** (`hero-design.md`), not a fixed

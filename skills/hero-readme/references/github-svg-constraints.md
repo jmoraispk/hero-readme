@@ -38,6 +38,20 @@ SVG **filters** render too (`feGaussianBlur`, `feTurbulence`, `feMerge`, …), a
 you can animate a filter attribute with SMIL — e.g. animating `feTurbulence`'s
 `baseFrequency` for a shader-like plasma. Used by `background-effects.md`.
 
+**Gotcha — `clip-path` + animated `transform` on the SAME element:** the clip
+travels with the transform, so a "sweep" clipped to a band will leak outside it.
+Put the clip on a **static outer** `<g>` and the animated `transform` on an
+**inner** `<g>`, so the clip window stays fixed while the child moves within it:
+
+```svg
+<g clip-path="url(#bandclip)">          <!-- fixed window -->
+  <g style="animation: sweep 4s infinite"><rect …/></g>  <!-- moves inside it -->
+</g>
+```
+
+This is the kind of defect the self-review loop exists to catch — it's invisible
+in the markup and obvious the moment you watch it move.
+
 ```svg
 <!-- CSS keyframes: a gradient sweep that loops forever, no script -->
 <style>

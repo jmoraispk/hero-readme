@@ -104,6 +104,10 @@ their own work; do not let the author be the sole reviewer.
   frame edge or collides; nothing cut off; labels fit their box.
 - **Legibility** — every word crisp over the effect in both themes; scrim works.
 - **GitHub-safe** — no `<script>`/`:hover`; motion gated; a11y present; well-formed.
+- **Valid & persistent** — *grep the file* for malformed hex colors and unclosed
+  tags; a browser silently ignores a bad color (e.g. `#3a4byes`) so your eye won't
+  catch it. And confirm the wordmark/tagline stay visible for MOST of the loop —
+  compare a frame near t=0 with a late one — not just a brief flash.
 
 ## Quick reference — GitHub SVG do / don't
 

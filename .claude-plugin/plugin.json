@@ -1,0 +1,16 @@
+{
+  "name": "hero-readme",
+  "version": "0.1.0",
+  "description": "Generate an authentic, animated SVG hero image for your README — derived from what your project actually is, not generic AI art.",
+  "author": {
+    "name": "Joao Morais"
+  },
+  "keywords": [
+    "readme",
+    "hero-image",
+    "banner",
+    "svg",
+    "animated-svg",
+    "documentation"
+  ]
+}

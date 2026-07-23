@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="1200" height="380" role="img" aria-label="hero-readme — authentic animated hero images for your README">
+  <title>hero-readme</title>
+  <desc>Wordmark reading hero-readme beside a stylized README document whose top hero band shimmers, illustrating an animated SVG hero placed at the top of a README.</desc>
+
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="0.5" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="bandclip">
+      <rect x="736" y="86" width="364" height="82" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <style>
+    text { font-family: 'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif; }
+    .bg     { fill: #f6f8fc; }
+    .card   { fill: #ffffff; stroke: #e3e8f0; stroke-width: 1.5; }
+    .shadow { fill: #0b1020; opacity: 0.06; }
+    .fg     { fill: #0b1020; }
+    .muted  { fill: #5b6472; }
+    .line   { fill: #d5dbe6; }
+    .bandtext { fill: #ffffff; }
+
+    @media (prefers-color-scheme: dark) {
+      .bg     { fill: #0d1117; }
+      .card   { fill: #161b22; stroke: #30363d; }
+      .shadow { fill: #000000; opacity: 0.35; }
+      .fg     { fill: #e6edf3; }
+      .muted  { fill: #9aa4b2; }
+      .line   { fill: #30363d; }
+    }
+
+    /* Static frame is already "finished": lines visible, shimmer hidden. */
+    .shimmer-g { opacity: 0; }
+    .reveal    { opacity: 1; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .shimmer-g { opacity: 1; animation: sweep 3.8s ease-in-out infinite; }
+      .reveal    { opacity: 0; animation: fadein 0.6s ease-out forwards; }
+      .l1 { animation-delay: 0.20s; } .l2 { animation-delay: 0.34s; }
+      .l3 { animation-delay: 0.48s; } .l4 { animation-delay: 0.62s; }
+      .l5 { animation-delay: 0.76s; }
+    }
+
+    @keyframes sweep  { 0% { transform: translateX(-200px); }
+                        45% { transform: translateX(420px); }
+                        100% { transform: translateX(420px); } }
+    @keyframes fadein { to { opacity: 1; } }
+  </style>
+
+  <!-- background + soft accent glow behind the card -->
+  <rect class="bg" x="0" y="0" width="1200" height="380"/>
+  <circle cx="918" cy="196" r="300" fill="url(#glow)" opacity="0.14"/>
+
+  <!-- ============ Left: wordmark ============ -->
+  <text class="fg" x="88" y="168" font-size="80" font-weight="800" letter-spacing="-1.5">
+    <tspan fill="url(#accent)">hero</tspan><tspan>-readme</tspan>
+  </text>
+  <rect x="92" y="186" width="172" height="8" rx="4" fill="url(#accent)"/>
+  <text class="muted" x="94" y="230" font-size="23" font-weight="500">authentic, animated hero images for your README</text>
+  <text class="muted" x="94" y="264" font-size="16" font-weight="500" opacity="0.8">no generic AI art — a hero that shows what your project actually is</text>
+
+  <!-- ============ Right: the README document motif ============ -->
+  <rect class="shadow" x="716" y="72" width="404" height="250" rx="20"/>
+  <rect class="card"   x="714" y="64" width="404" height="250" rx="20"/>
+
+  <!-- hero band (the animated hero the tool generates) -->
+  <rect x="736" y="86" width="364" height="82" rx="12" fill="url(#accent)"/>
+  <rect class="bandtext" x="760" y="112" width="150" height="15" rx="7.5" opacity="0.95"/>
+  <rect class="bandtext" x="760" y="136" width="96"  height="10" rx="5"   opacity="0.75"/>
+  <g class="shimmer-g" clip-path="url(#bandclip)">
+    <rect x="700" y="78" width="120" height="100" fill="url(#shimmer)" transform="skewX(-18)"/>
+  </g>
+
+  <!-- README body lines (staggered reveal) -->
+  <rect class="line reveal l1" x="736" y="196" width="360" height="11" rx="5.5"/>
+  <rect class="line reveal l2" x="736" y="220" width="300" height="11" rx="5.5"/>
+  <rect class="line reveal l3" x="736" y="244" width="336" height="11" rx="5.5"/>
+  <rect class="line reveal l4" x="736" y="268" width="250" height="11" rx="5.5"/>
+  <rect class="line reveal l5" x="736" y="292" width="188" height="11" rx="5.5"/>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "name": "hero-readme",
+  "owner": {
+    "name": "Joao Morais"
+  },
+  "metadata": {
+    "description": "A single skill that generates authentic, animated SVG hero images for READMEs.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "hero-readme",
+      "source": "./",
+      "description": "Generate an authentic, animated SVG hero image for your README — derived from what your project actually is, not generic AI art.",
+      "version": "0.1.0",
+      "category": ["documentation", "productivity"]
+    }
+  ]
+}

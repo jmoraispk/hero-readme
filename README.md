@@ -49,9 +49,9 @@ Self-contained dark banners with a **live background effect** and a motif drawn 
 
 [**odysseus-fx**](https://github.com/jmoraispk/odysseus-fx) — a flow-field particle background that mirrors the project's own effects gallery. [**delta-review**](https://github.com/jmoraispk/delta-review) — a twinkling dot-grid with a live code-diff motif. All animate on GitHub with no `<script>`.
 
-## Install
+## How to use
 
-**As a Claude Code plugin (recommended):**
+**1. Install it** — as a Claude Code plugin (recommended):
 
 ```bash
 /plugin marketplace add jmoraispk/hero-readme
@@ -61,15 +61,21 @@ Self-contained dark banners with a **live background effect** and a motif drawn 
 /plugin install hero-readme@hero-readme
 ```
 
-**As a plain skill (any agent):** copy [`skills/hero-readme/`](skills/hero-readme) into your agent's skills directory (for Claude Code, `~/.claude/skills/`).
+Or, for any agent, copy [`skills/hero-readme/`](skills/hero-readme) into its skills directory (Claude Code: `~/.claude/skills/`).
 
-## Use
+**2. Ask for a hero** — point your agent at a repo:
 
-Point your agent at a repo and ask:
+> **You:** *"Give this README a beautiful hero image."*
 
-> "Give this README a beautiful hero image."
+It also triggers on *"make my README beautiful,"* *"add a hero/banner,"* or *"generate a project banner."*
 
-The skill triggers on requests like *"make my README beautiful,"* *"add a hero/banner,"* or *"generate a project banner."* It then commits an SVG to `assets/` and wires it into the README.
+**3. It reads your project and sketches a direction.** Because every hero is built from your real name, tagline, and tech, the skill can take it different ways. For *this* repo, for example — a wordmark direction and an aurora direction, alongside the [document-motif hero at the top](#hero-readme):
+
+<p align="center"><img src="assets/variants/variant-wordmark.svg" alt="hero-readme — wordmark direction" width="82%"></p>
+
+<p align="center"><img src="assets/variants/variant-aurora.svg" alt="hero-readme — aurora direction" width="82%"></p>
+
+It then **renders and self-reviews** the result for alignment, commits the SVG to `assets/`, and wires it into your README. See it on real projects in [Examples](#examples), at scale in the [wild gallery](assets/wild/wild.md), and some flashier motifs in the [concept lab](testing_README.md).
 
 ## How it works
 
@@ -94,8 +100,13 @@ skills/hero-readme/
     └── readme-structure.md               # honest README skeleton
 assets/hero.svg                           # this repo's own hero (dogfooded)
 assets/examples/                          # the example banners above
+assets/variants/                          # alternative hero directions (How to use)
+assets/wild/                              # 103 heroes for popular repos + wild.md
+assets/testing/                           # animated marketing motifs (concept lab)
 .claude-plugin/                           # plugin + marketplace manifests
 ```
+
+See also: the [wild gallery](assets/wild/wild.md) and the [concept lab](testing_README.md).
 
 ## The principle
 

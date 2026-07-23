@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="900" height="260" role="img" aria-label="hero-readme wordmark hero over a drifting aurora background" font-family="'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif">
+<title>hero-readme — aurora direction</title><desc>Centered hero-readme wordmark over slow drifting aurora blobs.</desc>
+<defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0.5"><stop offset="0" stop-color="#818cf8"/><stop offset="0.55" stop-color="#a78bfa"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+<radialGradient id="v" cx="0.5" cy="0.5" r="0.62"><stop offset="0.4" stop-color="#0d1117" stop-opacity="0.82"/><stop offset="1" stop-color="#0d1117" stop-opacity="0"/></radialGradient>
+<clipPath id="frame"><rect width="900" height="260" rx="16"/></clipPath><filter id="soft" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="42"/></filter></defs>
+<style>
+.b1,.b2,.b3,.b4{animation:none}
+@media(prefers-reduced-motion:no-preference){
+ .b1{animation:m1 13s ease-in-out infinite alternate}.b2{animation:m2 15s ease-in-out infinite alternate}
+ .b3{animation:m3 11s ease-in-out infinite alternate}.b4{animation:m4 17s ease-in-out infinite alternate}}
+@keyframes m1{to{transform:translate(50px,20px)}}@keyframes m2{to{transform:translate(-40px,-24px)}}
+@keyframes m3{to{transform:translate(30px,26px)}}@keyframes m4{to{transform:translate(-36px,18px)}}</style>
+<g clip-path="url(#frame)"><rect width="900" height="260" fill="#0d1117"/><g filter="url(#soft)" opacity="0.6">
+<circle class="b1" cx="250" cy="90" r="150" fill="#6366f1"/>
+<circle class="b2" cx="650" cy="150" r="140" fill="#22d3ee"/>
+<circle class="b3" cx="470" cy="60" r="120" fill="#8b5cf6"/>
+<circle class="b4" cx="720" cy="80" r="110" fill="#a78bfa"/></g><ellipse cx="450" cy="120" rx="380" ry="96" fill="url(#v)"/><text x="450" y="128" text-anchor="middle" font-size="58" font-weight="800" letter-spacing="-1.5" fill="url(#accent)">hero-readme</text>
+<text x="450" y="166" text-anchor="middle" font-size="19" font-weight="500" fill="#c3ccd6">authentic, animated hero images for your README</text></g></svg>

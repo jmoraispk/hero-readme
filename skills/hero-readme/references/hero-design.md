@@ -80,6 +80,25 @@ Motion should feel intentional and calm, never a demo reel.
   `@media (prefers-reduced-motion: no-preference)`; the static frame must already
   look finished.
 
+## Choreography — sequence, don't pile up
+
+The viewer can only watch one thing at a time. Overlapping transitions all firing
+at once reads as noise; a clear sequence reads as intentional. So:
+
+- **One focal moment at a time.** Reveal in order — for a build-in: **title first,
+  then subtitle, then the motif/band, then its animation.** Don't fade three things
+  in together.
+- **Element first, *then* its animation.** Let a shape fully appear before you
+  animate *on* it (e.g. the band fades in, *then* a shimmer sweeps across it). If
+  the element and its motion arrive at the same instant, they fight and desync.
+- **Hold the payoff.** After the build completes, rest on the finished hero for a
+  couple of seconds before looping, so the viewer can actually read it.
+- **A typewriter must type** — reveal letter by letter (a stepped clip or per-glyph
+  reveal), not a smooth wipe or an instant `steps(1)` pop. A caret that tracks the
+  typing edge sells it.
+- Background texture may run continuously underneath; it's the low-salience layer,
+  not a competing transition.
+
 ## Composition checklist
 
 - [ ] Banner aspect ~2.5:1–4:1, generous margins, nothing clipped at the edges.

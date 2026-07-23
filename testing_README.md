@@ -44,19 +44,14 @@ blinking caret, then the tagline settles in.
 
 ## Transforms
 
-**7. Badge morph** — a lifeless row of shields.io badges collapses and a real hero
-grows in its place. "More than a badge strip."
-
-<p align="center"><img src="assets/testing/badge-morph.svg" alt="A row of shields badges morphs into an animated hero" width="90%"></p>
-
-**8. Theme flip** — one hero recoloring through several palettes (cycling the actual
+**7. Theme flip** — one hero recoloring through several palettes (cycling the actual
 Odysseus / Void / Abyss / Ember themes). Shows the palette is derived, not fixed.
 
 <p align="center"><img src="assets/testing/theme-flip.svg" alt="One hero recoloring through several themes" width="90%"></p>
 
 ## Comparison
 
-**9. Side-by-side** — a shields-only README next to one with a real hero. No animation
+**8. Side-by-side** — a shields-only README next to one with a real hero. No animation
 needed to make the point, though the hero side still breathes.
 
 <p align="center"><img src="assets/testing/side-by-side.svg" alt="A plain badge-only README beside one with an animated hero" width="90%"></p>

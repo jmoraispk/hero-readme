@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="hero-readme — authentic animated hero images for your README" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="hero-readme — animated hero images for your README, a Claude skill" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif">
   <title>hero-readme</title>
   <desc>A dark banner with an animated flow-field particle background. On the left, the wordmark hero-readme and a tagline; on the right, a stylized README document whose top hero band shimmers — illustrating an animated hero placed at the top of a README.</desc>
 
@@ -271,8 +271,8 @@
     <tspan fill="url(#accent)">hero</tspan><tspan>-readme</tspan>
   </text>
   <rect x="100" y="190" width="178" height="8" rx="4" fill="url(#accent)"/>
-  <text x="102" y="236" font-size="24" font-weight="500" fill="#aeb8c6">authentic, animated hero images for your README</text>
-  <text x="102" y="270" font-size="16" font-weight="500" fill="#7b8595" opacity="0.95">no generic AI art — a hero that shows what your project actually is</text>
+  <text x="102" y="236" font-size="25" font-weight="500" fill="#aeb8c6">Animated hero images for your README</text>
+  <text x="102" y="270" font-size="17" font-weight="600" fill="#8b93c9">a Claude skill for animated SVG hero sections</text>
 
   <!-- ============ Right: the README document motif ============ -->
   <rect x="742" y="66" width="474" height="236" rx="18" fill="#000000" opacity="0.28"/>

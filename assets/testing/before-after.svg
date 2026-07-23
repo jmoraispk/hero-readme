@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-label="Before and after: a plain README gains an animated hero at the top" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif">
+  <title>Before → After</title>
+  <desc>A plain README with only gray text; then an animated gradient hero band drops in at the top and the content shifts down to make room. Loops.</desc>
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="0.5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient>
+    <linearGradient id="shimmer" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="0.5" stop-color="#fff" stop-opacity="0.5"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <clipPath id="page"><rect x="300" y="40" width="600" height="360" rx="12"/></clipPath>
+    <clipPath id="band"><rect x="324" y="64" width="552" height="92" rx="8"/></clipPath>
+    <clipPath id="frame"><rect width="1200" height="440" rx="18"/></clipPath>
+  </defs>
+  <style>
+    .content { transform: translateY(120px); }
+    .hero    { opacity: 1; }
+    .capA    { opacity: 0; } .capB { opacity: 1; }
+    .shimmer-g { animation: sweep 3.6s ease-in-out infinite; }
+    @media (prefers-reduced-motion: no-preference) {
+      .content { animation: drop 7s ease-in-out infinite; }
+      .hero    { animation: rise 7s ease-in-out infinite; }
+      .capA    { animation: capA 7s ease-in-out infinite; }
+      .capB    { animation: capB 7s ease-in-out infinite; }
+    }
+    @keyframes drop { 0%,20% { transform: translateY(0); } 40%,86% { transform: translateY(120px); } 100% { transform: translateY(0); } }
+    @keyframes rise { 0%,24% { opacity:0; transform: translateY(-14px); } 40%,84% { opacity:1; transform: translateY(0); } 96%,100% { opacity:0; transform: translateY(-14px); } }
+    @keyframes capA { 0%,18% { opacity:1; } 32%,100% { opacity:0; } }
+    @keyframes capB { 0%,30% { opacity:0; } 44%,86% { opacity:1; } 98%,100% { opacity:0; } }
+    @keyframes sweep { 0% { transform: translateX(-120px); } 52% { transform: translateX(520px); } 100% { transform: translateX(520px); } }
+  </style>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="440" fill="#0d1117"/>
+    <!-- README page -->
+    <rect x="300" y="40" width="600" height="360" rx="12" fill="#161b22" stroke="#2b333d" stroke-width="1.5"/>
+    <g clip-path="url(#page)">
+      <!-- content that gets pushed down -->
+      <g class="content">
+        <rect x="324" y="64" width="250" height="20" rx="10" fill="#3a434e"/>
+        <rect x="324" y="102" width="552" height="11" rx="5.5" fill="#262d36"/>
+        <rect x="324" y="126" width="486" height="11" rx="5.5" fill="#262d36"/>
+        <rect x="324" y="150" width="520" height="11" rx="5.5" fill="#262d36"/>
+        <rect x="324" y="174" width="430" height="11" rx="5.5" fill="#262d36"/>
+        <rect x="324" y="198" width="500" height="11" rx="5.5" fill="#262d36"/>
+        <rect x="324" y="222" width="360" height="11" rx="5.5" fill="#262d36"/>
+        <rect x="324" y="246" width="470" height="11" rx="5.5" fill="#262d36"/>
+      </g>
+      <!-- the hero that appears -->
+      <g class="hero">
+        <rect x="324" y="64" width="552" height="92" rx="8" fill="url(#accent)"/>
+        <rect x="352" y="90" width="200" height="17" rx="8.5" fill="#fff" opacity="0.95"/>
+        <rect x="352" y="116" width="120" height="11" rx="5.5" fill="#fff" opacity="0.75"/>
+        <g clip-path="url(#band)"><g class="shimmer-g"><rect x="324" y="52" width="90" height="118" fill="url(#shimmer)" transform="skewX(-16)"/></g></g>
+      </g>
+    </g>
+    <!-- captions -->
+    <text class="capA" x="600" y="424" text-anchor="middle" font-size="20" font-weight="600" fill="#7b8595">a plain README…</text>
+    <text class="capB" x="600" y="424" text-anchor="middle" font-size="20" font-weight="700" fill="#c3ccd6">…now with an animated hero <tspan fill="#a78bfa">✦</tspan></text>
+  </g>
+</svg>

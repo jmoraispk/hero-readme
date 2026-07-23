@@ -1,8 +1,28 @@
 # hero-readme — in the wild
 
-Wordmark heroes auto-generated for **103 popular repositories**, each built from the project's **real** name, description, and primary language (fetched live from GitHub). This is the skill's *safe-default* archetype — a wordmark over a language-colored flow-field — **not** a bespoke per-project motif like [codeaway](../examples/codeaway.svg). It shows the skill at scale.
+Two tiers. **Bespoke** heroes read the repo, use its brand colors, and draw a motif of what it actually does — the goal for every entry. Below them, **auto** wordmark heroes cover the long tail (real name / tagline / language, one archetype) until each gets the bespoke treatment.
 
-> These are a demonstration of what `hero-readme` would generate; "popular repo without a hero" is best-effort curation. Generated from live GitHub metadata, July 2026. Sorted by stars.
+## Bespoke — brand + concept, unique per repo
+
+<p align="center"><a href="https://github.com/junegunn/fzf"><img src="bespoke/fzf.svg" alt="fzf hero" width="100%"></a></p>
+
+**[junegunn/fzf](https://github.com/junegunn/fzf)** — a fuzzy-finder panel filtering a list to a highlighted match — teal, like its own match colors
+
+<p align="center"><a href="https://github.com/sharkdp/bat"><img src="bespoke/bat.svg" alt="bat hero" width="100%"></a></p>
+
+**[sharkdp/bat](https://github.com/sharkdp/bat)** — a syntax-highlighted file with a git gutter and a little bat-wing glyph
+
+<p align="center"><a href="https://github.com/jesseduffield/lazygit"><img src="bespoke/lazygit.svg" alt="lazygit hero" width="100%"></a></p>
+
+**[jesseduffield/lazygit](https://github.com/jesseduffield/lazygit)** — a git commit graph with a branch and staged files, in git green + branch purple
+
+> The plan for every repo below: this treatment — its own palette, a concept motif, and the **before → after**, **boot-up**, and **side-by-side** marketing motifs, each unique to the repo.
+
+---
+
+## Auto — wordmark heroes (103)
+
+Real name, description, and language, fetched live from GitHub — the skill's safe-default archetype, sorted by stars. "Popular repo without a hero" is best-effort curation. Generated July 2026.
 
 ---
 

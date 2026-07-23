@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img"
+     aria-label="sharp — high performance Node.js image processing. An image travels through a transform pipeline: resize, rotate, blur.">
+  <title>sharp</title>
+  <desc>Animated dark banner. A photo tile moves left to right along an image-processing conveyor, changing at each station — first resized smaller, then rotated, then blurred — ending as processed output.</desc>
+
+  <style>
+    .title  { font-family:'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif; }
+    .mono   { font-family:'SFMono-Regular', ui-monospace, 'Cascadia Mono', Consolas, 'Segoe UI', monospace; }
+
+    /* marching-ants conveyor flow */
+    .flow { stroke-dasharray:7 7; animation: march 1s linear infinite; }
+    @keyframes march { to { stroke-dashoffset:-28; } }
+
+    /* the travelling photo tile */
+    .card { transform: translate(380px,232px) scale(.6) rotate(0deg); opacity:1;
+            animation: travel 10s cubic-bezier(.65,0,.35,1) infinite,
+                       blurfx 10s linear infinite,
+                       fade   10s linear infinite; }
+    @keyframes travel {
+      0%,7%  { transform: translate(140px,232px) scale(1)  rotate(0deg); }
+      24%    { transform: translate(380px,232px) scale(.6) rotate(0deg); }
+      46%    { transform: translate(620px,232px) scale(.6) rotate(90deg); }
+      68%    { transform: translate(860px,232px) scale(.6) rotate(90deg); }
+      90%,100%{ transform: translate(1120px,232px) scale(.6) rotate(90deg); }
+    }
+    @keyframes blurfx { 0%,60%{ filter:blur(0); } 72%,100%{ filter:blur(4px); } }
+    @keyframes fade   { 0%{ opacity:0; } 4%{ opacity:1; } 93%{ opacity:1; } 100%{ opacity:0; } }
+
+    /* station highlight pulse */
+    .pulse { animation: pulse 10s ease-in-out infinite; }
+    @keyframes pulse {
+      0%,100%{ opacity:.15; } 7%{ opacity:.55; }
+      24%{ opacity:.15; } 46%{ opacity:.15; } 68%{ opacity:.15; } 90%{ opacity:.15; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .flow, .card, .pulse { animation:none; }
+    }
+  </style>
+
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1280" height="360" rx="20"/></clipPath>
+    <clipPath id="pclip"><rect x="-60" y="-42" width="120" height="84" rx="8"/></clipPath>
+
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#123a5c"/>
+      <stop offset=".55" stop-color="#2f6f7a"/>
+      <stop offset="1" stop-color="#e0894b"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff4cf"/>
+      <stop offset=".6" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </radialGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset=".5" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#a3e635"/>
+    </linearGradient>
+    <radialGradient id="glowTL" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#14b8a6" stop-opacity=".30"/>
+      <stop offset="1" stop-color="#14b8a6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowBR" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#4ade80" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#4ade80" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- reusable photo tile, centred at (0,0), 120x84 -->
+    <g id="photo">
+      <g clip-path="url(#pclip)">
+        <rect x="-60" y="-42" width="120" height="84" fill="url(#sky)"/>
+        <circle cx="26" cy="-14" r="13" fill="url(#sun)"/>
+        <path d="M-60 42 L-26 6 L-4 26 L18 4 L44 28 L60 18 L60 42 Z" fill="#0f766e"/>
+        <path d="M-60 42 L-32 16 L-6 42 Z" fill="#134e4a" opacity=".85"/>
+      </g>
+      <rect x="-60" y="-42" width="120" height="84" rx="8" fill="none" stroke="#a3e635" stroke-opacity=".55" stroke-width="1.5"/>
+    </g>
+
+    <marker id="arw" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#34d399" fill-opacity=".8"/>
+    </marker>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- background -->
+    <rect width="1280" height="360" fill="#0d1117"/>
+    <rect width="1280" height="360" fill="url(#glowTL)" transform="translate(-260 -180)"/>
+    <rect width="1280" height="360" fill="url(#glowBR)" transform="translate(760 180)"/>
+    <!-- faint pixel grid to suggest raster imagery -->
+    <g fill="#8ab4c8" fill-opacity=".05">
+      <rect x="0" y="0" width="1280" height="360" fill="none"/>
+    </g>
+    <g stroke="#233041" stroke-width="1" opacity=".35">
+      <path d="M0 300 H1280 M0 340 H1280"/>
+    </g>
+
+    <!-- ============ static filmstrip of the pipeline (tells the story at rest) ============ -->
+    <!-- station base plates + highlight rings -->
+    <g>
+      <g transform="translate(140 232)"><circle r="58" fill="#0f1620" stroke="#1f2b3a"/><circle class="pulse" r="58" fill="none" stroke="#5eead4" stroke-width="2"/></g>
+      <g transform="translate(380 232)"><circle r="46" fill="#0f1620" stroke="#1f2b3a"/><circle class="pulse" r="46" fill="none" stroke="#5eead4" stroke-width="2" style="animation-delay:0s"/></g>
+      <g transform="translate(620 232)"><circle r="46" fill="#0f1620" stroke="#1f2b3a"/></g>
+      <g transform="translate(860 232)"><circle r="46" fill="#0f1620" stroke="#1f2b3a"/></g>
+      <g transform="translate(1120 232)"><circle r="46" fill="#0f1620" stroke="#34d399" stroke-opacity=".5"/></g>
+    </g>
+
+    <!-- connectors -->
+    <g fill="none" stroke="#34d399" stroke-opacity=".7" stroke-width="2" marker-end="url(#arw)">
+      <line class="flow" x1="212" y1="232" x2="320" y2="232"/>
+      <line class="flow" x1="440" y1="232" x2="558" y2="232"/>
+      <line class="flow" x1="680" y1="232" x2="798" y2="232"/>
+      <line class="flow" x1="920" y1="232" x2="1058" y2="232"/>
+    </g>
+
+    <!-- ghost previews of each transform stage (static, low opacity) -->
+    <use href="#photo" transform="translate(140 232) scale(1)"   opacity=".9"/>
+    <use href="#photo" transform="translate(380 232) scale(.6)"  opacity=".42"/>
+    <use href="#photo" transform="translate(620 232) scale(.6) rotate(90)" opacity=".42"/>
+    <use href="#photo" transform="translate(860 232) scale(.6) rotate(90)" opacity=".42" style="filter:blur(3px)"/>
+    <use href="#photo" transform="translate(1120 232) scale(.6) rotate(90)" opacity=".55" style="filter:blur(3px)"/>
+
+    <!-- live travelling tile -->
+    <use href="#photo" class="card"/>
+
+    <!-- station labels -->
+    <g class="mono" fill="#9aa7b4" font-size="12.5" font-weight="600" text-anchor="middle" letter-spacing=".08em">
+      <text x="140"  y="308">INPUT</text>
+      <text x="380"  y="308" fill="#5eead4">.resize()</text>
+      <text x="620"  y="308" fill="#5eead4">.rotate()</text>
+      <text x="860"  y="308" fill="#5eead4">.blur()</text>
+      <text x="1120" y="308" fill="#a3e635">.toBuffer()</text>
+    </g>
+
+    <!-- ============ wordmark ============ -->
+    <g transform="translate(64 58)">
+      <rect x="-14" y="-14" width="470" height="118" rx="16" fill="#0d1117" fill-opacity=".72"/>
+      <rect x="-14" y="-14" width="470" height="118" rx="16" fill="none" stroke="#1f2b3a"/>
+      <text class="title" x="0" y="56" font-size="70" font-weight="800" letter-spacing="-.02em" fill="url(#brand)">sharp</text>
+      <rect x="4" y="70" width="120" height="4" rx="2" fill="url(#brand)"/>
+      <text class="title" x="6" y="94" font-size="17.5" font-weight="600" fill="#c6d2de">High performance Node.js image processing</text>
+    </g>
+
+    <!-- top-right note -->
+    <text class="mono" x="1216" y="52" text-anchor="end" font-size="13" fill="#5a6b7b" letter-spacing=".06em">powered by libvips</text>
+
+    <!-- crisp border -->
+    <rect x=".5" y=".5" width="1279" height="359" rx="20" fill="none" stroke="#2b3a4d" stroke-opacity=".8"/>
+  </g>
+</svg>

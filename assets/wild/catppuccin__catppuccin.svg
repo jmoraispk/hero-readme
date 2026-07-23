@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img"
+     aria-label="Catppuccin — soothing pastel theme. A palette of pastel color swatches blooms and recolors smoothly through the four flavors: Latte, Frappe, Macchiato and Mocha.">
+  <title>Catppuccin</title>
+  <desc>Animated hero: a grid of pastel accent swatches gently blooms while the whole showcase recolors continuously through Catppuccin's four flavors — Latte (light) to Frappe, Macchiato and Mocha (dark).</desc>
+
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1280" height="360" rx="20"/></clipPath>
+
+    <radialGradient id="glow" cx="78%" cy="18%" r="70%">
+      <stop offset="0%" stop-color="#cba6f7" stop-opacity="0.16"/>
+      <stop offset="45%" stop-color="#89b4fa" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+
+    <style>
+      /* ---- continuous recolor through the 4 flavors (Latte→Frappe→Macchiato→Mocha) ---- */
+      @keyframes baseflav   {0%{fill:#eff1f5}25%{fill:#303446}50%{fill:#24273a}75%{fill:#1e1e2e}100%{fill:#eff1f5}}
+
+      @keyframes acc-rosewater{0%{fill:#dc8a78}25%{fill:#f2d5cf}50%{fill:#f4dbd6}75%{fill:#f5e0dc}100%{fill:#dc8a78}}
+      @keyframes acc-flamingo {0%{fill:#dd7878}25%{fill:#eebebe}50%{fill:#f0c6c6}75%{fill:#f2cdcd}100%{fill:#dd7878}}
+      @keyframes acc-pink     {0%{fill:#ea76cb}25%{fill:#f4b8e4}50%{fill:#f5bde6}75%{fill:#f5c2e7}100%{fill:#ea76cb}}
+      @keyframes acc-mauve    {0%{fill:#8839ef}25%{fill:#ca9ee6}50%{fill:#c6a0f6}75%{fill:#cba6f7}100%{fill:#8839ef}}
+      @keyframes acc-red      {0%{fill:#d20f39}25%{fill:#e78284}50%{fill:#ed8796}75%{fill:#f38ba8}100%{fill:#d20f39}}
+      @keyframes acc-maroon   {0%{fill:#e64553}25%{fill:#ea999c}50%{fill:#ee99a0}75%{fill:#eba0ac}100%{fill:#e64553}}
+      @keyframes acc-peach    {0%{fill:#fe640b}25%{fill:#ef9f76}50%{fill:#f5a97f}75%{fill:#fab387}100%{fill:#fe640b}}
+      @keyframes acc-yellow   {0%{fill:#df8e1d}25%{fill:#e5c890}50%{fill:#eed49f}75%{fill:#f9e2af}100%{fill:#df8e1d}}
+      @keyframes acc-green    {0%{fill:#40a02b}25%{fill:#a6d189}50%{fill:#a6da95}75%{fill:#a6e3a1}100%{fill:#40a02b}}
+      @keyframes acc-teal     {0%{fill:#179299}25%{fill:#81c8be}50%{fill:#8bd5ca}75%{fill:#94e2d5}100%{fill:#179299}}
+      @keyframes acc-sky      {0%{fill:#04a5e5}25%{fill:#99d1db}50%{fill:#91d7e3}75%{fill:#89dceb}100%{fill:#04a5e5}}
+      @keyframes acc-sapphire {0%{fill:#209fb5}25%{fill:#85c1dc}50%{fill:#7dc4e4}75%{fill:#74c7ec}100%{fill:#209fb5}}
+      @keyframes acc-blue     {0%{fill:#1e66f5}25%{fill:#8caaee}50%{fill:#8aadf4}75%{fill:#89b4fa}100%{fill:#1e66f5}}
+      @keyframes acc-lavender {0%{fill:#7287fd}25%{fill:#babbf1}50%{fill:#b7bdf8}75%{fill:#b4befe}100%{fill:#7287fd}}
+
+      /* ---- swatches bloom (breathe) in a staggered diagonal wave ---- */
+      @keyframes bloom {0%{transform:scale(.85);opacity:.72}50%{transform:scale(1);opacity:1}100%{transform:scale(.85);opacity:.72}}
+
+      /* ---- flavor name crossfade, snapped to the quarter points ---- */
+      @keyframes fl-lat {0%{opacity:1}18%{opacity:1}23%{opacity:0}95%{opacity:0}100%{opacity:1}}
+      @keyframes fl-fra {0%{opacity:0}20%{opacity:0}25%{opacity:1}43%{opacity:1}48%{opacity:0}100%{opacity:0}}
+      @keyframes fl-mac {0%{opacity:0}45%{opacity:0}50%{opacity:1}68%{opacity:1}73%{opacity:0}100%{opacity:0}}
+      @keyframes fl-moc {0%{opacity:0}70%{opacity:0}75%{opacity:1}93%{opacity:1}98%{opacity:0}100%{opacity:0}}
+
+      .panel{animation:baseflav 20s ease-in-out infinite}
+      .cell{transform-box:fill-box;transform-origin:center;animation:bloom 6s ease-in-out infinite}
+
+      .acc-rosewater{animation:acc-rosewater 20s ease-in-out infinite}
+      .acc-flamingo {animation:acc-flamingo 20s ease-in-out infinite}
+      .acc-pink     {animation:acc-pink 20s ease-in-out infinite}
+      .acc-mauve    {animation:acc-mauve 20s ease-in-out infinite}
+      .acc-red      {animation:acc-red 20s ease-in-out infinite}
+      .acc-maroon   {animation:acc-maroon 20s ease-in-out infinite}
+      .acc-peach    {animation:acc-peach 20s ease-in-out infinite}
+      .acc-yellow   {animation:acc-yellow 20s ease-in-out infinite}
+      .acc-green    {animation:acc-green 20s ease-in-out infinite}
+      .acc-teal     {animation:acc-teal 20s ease-in-out infinite}
+      .acc-sky      {animation:acc-sky 20s ease-in-out infinite}
+      .acc-sapphire {animation:acc-sapphire 20s ease-in-out infinite}
+      .acc-blue     {animation:acc-blue 20s ease-in-out infinite}
+      .acc-lavender {animation:acc-lavender 20s ease-in-out infinite}
+
+      .fl-lat{animation:fl-lat 20s ease-in-out infinite}
+      .fl-fra{animation:fl-fra 20s ease-in-out infinite}
+      .fl-mac{animation:fl-mac 20s ease-in-out infinite}
+      .fl-moc{animation:fl-moc 20s ease-in-out infinite}
+
+      .word{font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;font-weight:800}
+      .body{font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}
+
+      @media (prefers-reduced-motion: reduce){
+        *{animation:none !important}
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- dark banner -->
+    <rect x="0" y="0" width="1280" height="360" fill="#0d1117"/>
+    <rect x="0" y="0" width="1280" height="360" fill="url(#glow)"/>
+
+    <!-- ===== right: flavor palette showcase (panel recolors through the base of each flavor) ===== -->
+    <rect class="panel" x="612" y="40" width="628" height="280" rx="24" fill="#1e1e2e"/>
+    <rect x="612" y="40" width="628" height="280" rx="24" fill="none" stroke="#b4befe" stroke-opacity="0.16"/>
+
+    <!-- 14 accent swatches, 7 x 2 -->
+    <g class="cell" style="animation-delay:-0.0s"><rect class="acc-rosewater" x="655" y="107" width="62" height="62" rx="14" fill="#f5e0dc"/></g>
+    <g class="cell" style="animation-delay:-0.4s"><rect class="acc-flamingo"  x="735" y="107" width="62" height="62" rx="14" fill="#f2cdcd"/></g>
+    <g class="cell" style="animation-delay:-0.8s"><rect class="acc-pink"      x="815" y="107" width="62" height="62" rx="14" fill="#f5c2e7"/></g>
+    <g class="cell" style="animation-delay:-1.2s"><rect class="acc-mauve"     x="895" y="107" width="62" height="62" rx="14" fill="#cba6f7"/></g>
+    <g class="cell" style="animation-delay:-1.6s"><rect class="acc-red"       x="975" y="107" width="62" height="62" rx="14" fill="#f38ba8"/></g>
+    <g class="cell" style="animation-delay:-2.0s"><rect class="acc-maroon"    x="1055" y="107" width="62" height="62" rx="14" fill="#eba0ac"/></g>
+    <g class="cell" style="animation-delay:-2.4s"><rect class="acc-peach"     x="1135" y="107" width="62" height="62" rx="14" fill="#fab387"/></g>
+
+    <g class="cell" style="animation-delay:-0.2s"><rect class="acc-yellow"   x="655" y="191" width="62" height="62" rx="14" fill="#f9e2af"/></g>
+    <g class="cell" style="animation-delay:-0.6s"><rect class="acc-green"    x="735" y="191" width="62" height="62" rx="14" fill="#a6e3a1"/></g>
+    <g class="cell" style="animation-delay:-1.0s"><rect class="acc-teal"     x="815" y="191" width="62" height="62" rx="14" fill="#94e2d5"/></g>
+    <g class="cell" style="animation-delay:-1.4s"><rect class="acc-sky"      x="895" y="191" width="62" height="62" rx="14" fill="#89dceb"/></g>
+    <g class="cell" style="animation-delay:-1.8s"><rect class="acc-sapphire" x="975" y="191" width="62" height="62" rx="14" fill="#74c7ec"/></g>
+    <g class="cell" style="animation-delay:-2.2s"><rect class="acc-blue"     x="1055" y="191" width="62" height="62" rx="14" fill="#89b4fa"/></g>
+    <g class="cell" style="animation-delay:-2.6s"><rect class="acc-lavender" x="1135" y="191" width="62" height="62" rx="14" fill="#b4befe"/></g>
+
+    <!-- ===== left: wordmark + tagline over the calm dark area ===== -->
+    <text class="word" x="60" y="150" font-size="76" fill="#cdd6f4">Catppuccin</text>
+    <rect class="acc-mauve" x="63" y="170" width="300" height="8" rx="4" fill="#cba6f7"/>
+
+    <text class="body" x="64" y="212" font-size="23" fill="#a6adc8">Soothing pastel theme for the high-spirited</text>
+    <text class="body" x="64" y="242" font-size="15" fill="#6c7086" letter-spacing="0.5">14 accents · 4 flavors, light to dark</text>
+
+    <!-- flavor pill: dot recolors continuously, name snaps to the current flavor -->
+    <rect x="60" y="266" width="238" height="42" rx="21" fill="#ffffff" fill-opacity="0.04" stroke="#cba6f7" stroke-opacity="0.35"/>
+    <circle class="acc-pink" cx="89" cy="287" r="8" fill="#f5c2e7"/>
+    <g transform="translate(108,293)" font-size="19" class="body" font-weight="600" fill="#cdd6f4">
+      <text class="fl-lat" x="0" y="0" opacity="0">Latte</text>
+      <text class="fl-fra" x="0" y="0" opacity="0">Frappé</text>
+      <text class="fl-mac" x="0" y="0" opacity="0">Macchiato</text>
+      <text class="fl-moc" x="0" y="0" opacity="1">Mocha</text>
+    </g>
+  </g>
+</svg>

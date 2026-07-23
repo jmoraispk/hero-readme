@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img" aria-label="Excalidraw — virtual whiteboard for hand-drawn diagrams. Rough sketched shapes draw themselves in.">
+  <title>Excalidraw</title>
+  <desc>A dark rounded banner for Excalidraw. Hand-drawn shapes — a rectangle, an arrow, and an ellipse — sketch themselves in one after another as a pen tip traces each stroke, next to the Excalidraw wordmark and tagline.</desc>
+
+  <defs>
+    <clipPath id="round">
+      <rect x="0" y="0" width="1280" height="360" rx="20"/>
+    </clipPath>
+
+    <!-- subtle dot-grid whiteboard texture -->
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.4" cy="1.4" r="1.4" fill="#20263a"/>
+    </pattern>
+
+    <radialGradient id="glow" cx="30%" cy="42%" r="72%">
+      <stop offset="0%" stop-color="#1b2136"/>
+      <stop offset="55%" stop-color="#11162a"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </radialGradient>
+
+    <linearGradient id="scrim" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="#0d1117" stop-opacity="0.96"/>
+      <stop offset="60%" stop-color="#0d1117" stop-opacity="0.82"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- hand-drawn wobble filter -->
+    <filter id="rough" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.014 0.02" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+
+    <style>
+      /* Every drawn stroke is normalized with pathLength="1" so one
+         dash unit spans the whole path regardless of geometry. */
+      .ink  { fill:none; stroke-linecap:round; stroke-linejoin:round; }
+      .draw { stroke-dasharray:1; stroke-dashoffset:1; }
+      /* Fill shapes must NOT inherit .ink's fill:none — keep them separate
+         so their inline violet/amber fills actually render. */
+      .shapefill { stroke:none; }
+
+      /* --- staggered sketch, one 8s loop ---
+         rectangle  0.0s-1.4s
+         arrow      2.0s-3.4s
+         ellipse    4.0s-5.6s
+         wordmark   5.6s-6.4s, then rests to 8.0s */
+      #rect  .draw { animation: drawRect  8s linear infinite; }
+      #arrow .draw { animation: drawArrow 8s linear infinite; }
+      #ell   .draw { animation: drawEll   8s linear infinite; }
+      #rect  .fillfade { animation: fillRect 8s linear infinite; }
+      #ell   .fillfade { animation: fillEll  8s linear infinite; }
+      .cursor { animation: cur 8s linear infinite; }
+      .wm     { opacity:0; animation: wm 8s ease-out infinite; }
+
+      @keyframes drawRect  { 0%{stroke-dashoffset:1} 17%{stroke-dashoffset:0} 100%{stroke-dashoffset:0} }
+      @keyframes drawArrow { 0%,25%{stroke-dashoffset:1} 42%{stroke-dashoffset:0} 100%{stroke-dashoffset:0} }
+      @keyframes drawEll   { 0%,50%{stroke-dashoffset:1} 70%{stroke-dashoffset:0} 100%{stroke-dashoffset:0} }
+
+      @keyframes fillRect { 0%,14%{opacity:0} 22%{opacity:0.9} 100%{opacity:0.9} }
+      @keyframes fillEll  { 0%,64%{opacity:0} 74%{opacity:0.9} 100%{opacity:0.9} }
+
+      @keyframes wm {
+        0%      { opacity:0; transform: translateY(7px); }
+        12%     { opacity:1; transform: translateY(0); }
+        100%    { opacity:1; transform: translateY(0); }
+      }
+
+      /* Pen tip travels along each stroke as it is drawn, then lifts. */
+      @keyframes cur {
+        0%   { transform: translate(120px,98px);  opacity:1; }
+        4%   { transform: translate(348px,98px);  opacity:1; }
+        8%   { transform: translate(348px,246px); opacity:1; }
+        13%  { transform: translate(120px,246px); opacity:1; }
+        17%  { transform: translate(120px,110px); opacity:1; }
+        25%  { transform: translate(372px,172px); opacity:1; }
+        33%  { transform: translate(458px,150px); opacity:1; }
+        42%  { transform: translate(542px,168px); opacity:1; }
+        50%  { transform: translate(648px,93px);  opacity:1; }
+        57%  { transform: translate(744px,171px); opacity:1; }
+        63%  { transform: translate(648px,249px); opacity:1; }
+        70%  { transform: translate(552px,171px); opacity:1; }
+        73%  { transform: translate(600px,120px); opacity:0.6; }
+        78%  { transform: translate(640px,96px);  opacity:0; }
+        100% { transform: translate(640px,96px);  opacity:0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .draw, .fillfade, .wm, .cursor,
+        #rect .draw, #arrow .draw, #ell .draw,
+        #rect .fillfade, #ell .fillfade { animation: none; }
+        .draw     { stroke-dashoffset: 0; }
+        .fillfade { opacity: 0.9; }
+        .wm       { opacity: 1; transform: none; }
+        .cursor   { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- background -->
+    <rect width="1280" height="360" fill="#0d1117"/>
+    <rect width="1280" height="360" fill="url(#glow)"/>
+    <rect width="1280" height="360" fill="url(#grid)"/>
+
+    <!-- ================= HAND-DRAWN SKETCH STAGE ================= -->
+    <g filter="url(#rough)">
+
+      <!-- Rectangle (Excalidraw violet) -->
+      <g id="rect">
+        <path class="shapefill fillfade" d="M120 96 h230 v150 h-230 z" fill="#6965db" opacity="0"/>
+        <path class="ink draw" pathLength="1"
+              d="M120 98 h228 M348 96 v150 M350 246 h-231 M120 250 V95"
+              stroke="#8b86ff" stroke-width="4"/>
+      </g>
+
+      <!-- Arrow (green) connecting rectangle to ellipse -->
+      <g id="arrow">
+        <path class="ink draw" pathLength="1"
+              d="M372 172 C 430 150, 470 150, 542 168"
+              stroke="#59c17a" stroke-width="4"/>
+        <path class="ink draw" pathLength="1"
+              d="M542 168 l-30 -4 M542 168 l-22 18"
+              stroke="#59c17a" stroke-width="4"/>
+      </g>
+
+      <!-- Ellipse (amber) -->
+      <g id="ell">
+        <ellipse class="shapefill fillfade" cx="648" cy="171" rx="96" ry="78" fill="#e8a33d" opacity="0"/>
+        <path class="ink draw" pathLength="1"
+              d="M648 93 C 715 95, 748 130, 744 171 C 742 214, 706 249, 648 249 C 588 249, 553 212, 552 171 C 552 128, 588 95, 648 93"
+              stroke="#f0b64f" stroke-width="4"/>
+      </g>
+
+      <!-- pen cursor tip that traces the active stroke, then lifts -->
+      <g class="cursor">
+        <path d="M0 0 l14 4 l-6 5 l3 8 l-5 2 l-4 -8 l-6 4 z" fill="#e6e8f2" stroke="#0d1117" stroke-width="1.2"/>
+      </g>
+    </g>
+
+    <!-- ================= TEXT SCRIM + WORDMARK ================= -->
+    <rect x="600" y="0" width="680" height="360" fill="url(#scrim)"/>
+
+    <g class="wm" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif">
+      <text x="770" y="172" font-size="60" font-weight="800" fill="#eceefc" letter-spacing="-1.5">Excalidraw</text>
+      <text x="772" y="214" font-size="20" font-weight="500" fill="#a7adcf">Virtual whiteboard for hand-drawn diagrams</text>
+      <g transform="translate(772 242)">
+        <rect x="0" y="0" width="150" height="34" rx="8" fill="#6965db" opacity="0.16" stroke="#6965db" stroke-width="1.4"/>
+        <text x="18" y="23" font-size="16" font-weight="600" fill="#b9b6ff">open source · free</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0.75" y="0.75" width="1278.5" height="358.5" rx="20" fill="none" stroke="#2b3245" stroke-width="1.5"/>
+</svg>

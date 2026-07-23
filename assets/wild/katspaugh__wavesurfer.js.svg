@@ -1,0 +1,240 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img"
+     aria-label="wavesurfer.js — audio waveform player. An animated waveform draws across a dark banner and its bars pulse like an equalizer while a playhead sweeps left to right.">
+  <title>wavesurfer.js</title>
+  <desc>Dark hero banner for wavesurfer.js. A teal-to-orange audio waveform of vertical bars pulses like an equalizer while a bright playhead sweeps across, revealing played bars in warm orange. The project name and tagline "Audio waveform player" sit on the left.</desc>
+
+  <defs>
+    <!-- rounded-corner clip -->
+    <clipPath id="round">
+      <rect x="0" y="0" width="1280" height="360" rx="20" ry="20"/>
+    </clipPath>
+
+    <!-- background gradient -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="0.55" stop-color="#0e1622"/>
+      <stop offset="1" stop-color="#0b1119"/>
+    </linearGradient>
+
+    <!-- unplayed (ahead of playhead) waveform gradient: teal -->
+    <linearGradient id="wave" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="1" stop-color="#22a3b8"/>
+    </linearGradient>
+
+    <!-- played (behind playhead) waveform gradient: warm orange -->
+    <linearGradient id="played" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffb457"/>
+      <stop offset="1" stop-color="#f9703e"/>
+    </linearGradient>
+
+    <!-- left scrim behind text -->
+    <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0d1117" stop-opacity="0.96"/>
+      <stop offset="0.55" stop-color="#0d1117" stop-opacity="0.82"/>
+      <stop offset="1" stop-color="#0d1117" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="phead" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="0.15" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="0.85" stop-color="#ffe9c7" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#5eead4" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#5eead4" stop-opacity="0"/>
+    </radialGradient>
+
+    <style>
+      .bar { transform-box: fill-box; transform-origin: 50% 50%; }
+      @keyframes eq {
+        0%, 100% { transform: scaleY(0.38); }
+        50%      { transform: scaleY(1); }
+      }
+      @keyframes draw {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .bar, .anim { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- background -->
+    <rect width="1280" height="360" fill="url(#bg)"/>
+    <ellipse cx="820" cy="180" rx="620" ry="300" fill="url(#glow)"/>
+
+    <!-- center baseline -->
+    <rect x="60" y="179.5" width="1160" height="1" fill="#8b949e" opacity="0.18"/>
+
+    <!-- ===== waveform: mirrored equalizer bars around y=180 ===== -->
+    <!-- Each bar animates its scaleY (eq pulse) and appears via a draw delay (SMIL-free via CSS). -->
+    <g>
+      <!--
+        Bars are generated across x=90..1190. Two layers:
+        (a) teal "unplayed" bars (always present, static frame full height)
+        (b) orange "played" bars clipped by a sweeping reveal that follows the playhead
+      -->
+      <!-- TEAL base layer -->
+      <g fill="url(#wave)">
+        <rect class="bar" x="90"   y="120" width="10" height="120" rx="5" style="animation:eq 1.4s ease-in-out -0.00s infinite;"/>
+        <rect class="bar" x="112"  y="96"  width="10" height="168" rx="5" style="animation:eq 1.4s ease-in-out -0.12s infinite;"/>
+        <rect class="bar" x="134"  y="140" width="10" height="80"  rx="5" style="animation:eq 1.4s ease-in-out -0.24s infinite;"/>
+        <rect class="bar" x="156"  y="72"  width="10" height="216" rx="5" style="animation:eq 1.4s ease-in-out -0.36s infinite;"/>
+        <rect class="bar" x="178"  y="110" width="10" height="140" rx="5" style="animation:eq 1.4s ease-in-out -0.48s infinite;"/>
+        <rect class="bar" x="200"  y="150" width="10" height="60"  rx="5" style="animation:eq 1.4s ease-in-out -0.60s infinite;"/>
+        <rect class="bar" x="222"  y="84"  width="10" height="192" rx="5" style="animation:eq 1.4s ease-in-out -0.72s infinite;"/>
+        <rect class="bar" x="244"  y="126" width="10" height="108" rx="5" style="animation:eq 1.4s ease-in-out -0.84s infinite;"/>
+        <rect class="bar" x="266"  y="60"  width="10" height="240" rx="5" style="animation:eq 1.4s ease-in-out -0.96s infinite;"/>
+        <rect class="bar" x="288"  y="132" width="10" height="96"  rx="5" style="animation:eq 1.4s ease-in-out -1.08s infinite;"/>
+        <rect class="bar" x="310"  y="102" width="10" height="156" rx="5" style="animation:eq 1.4s ease-in-out -1.20s infinite;"/>
+        <rect class="bar" x="332"  y="144" width="10" height="72"  rx="5" style="animation:eq 1.4s ease-in-out -1.32s infinite;"/>
+        <rect class="bar" x="354"  y="78"  width="10" height="204" rx="5" style="animation:eq 1.4s ease-in-out -0.06s infinite;"/>
+        <rect class="bar" x="376"  y="116" width="10" height="128" rx="5" style="animation:eq 1.4s ease-in-out -0.18s infinite;"/>
+        <rect class="bar" x="398"  y="156" width="10" height="48"  rx="5" style="animation:eq 1.4s ease-in-out -0.30s infinite;"/>
+        <rect class="bar" x="420"  y="90"  width="10" height="180" rx="5" style="animation:eq 1.4s ease-in-out -0.42s infinite;"/>
+        <rect class="bar" x="442"  y="128" width="10" height="104" rx="5" style="animation:eq 1.4s ease-in-out -0.54s infinite;"/>
+        <rect class="bar" x="464"  y="66"  width="10" height="228" rx="5" style="animation:eq 1.4s ease-in-out -0.66s infinite;"/>
+        <rect class="bar" x="486"  y="138" width="10" height="84"  rx="5" style="animation:eq 1.4s ease-in-out -0.78s infinite;"/>
+        <rect class="bar" x="508"  y="106" width="10" height="148" rx="5" style="animation:eq 1.4s ease-in-out -0.90s infinite;"/>
+        <rect class="bar" x="530"  y="148" width="10" height="64"  rx="5" style="animation:eq 1.4s ease-in-out -1.02s infinite;"/>
+        <rect class="bar" x="552"  y="74"  width="10" height="212" rx="5" style="animation:eq 1.4s ease-in-out -1.14s infinite;"/>
+        <rect class="bar" x="574"  y="122" width="10" height="116" rx="5" style="animation:eq 1.4s ease-in-out -1.26s infinite;"/>
+        <rect class="bar" x="596"  y="152" width="10" height="56"  rx="5" style="animation:eq 1.4s ease-in-out -0.03s infinite;"/>
+        <rect class="bar" x="618"  y="82"  width="10" height="196" rx="5" style="animation:eq 1.4s ease-in-out -0.15s infinite;"/>
+        <rect class="bar" x="640"  y="124" width="10" height="112" rx="5" style="animation:eq 1.4s ease-in-out -0.27s infinite;"/>
+        <rect class="bar" x="662"  y="64"  width="10" height="232" rx="5" style="animation:eq 1.4s ease-in-out -0.39s infinite;"/>
+        <rect class="bar" x="684"  y="134" width="10" height="92"  rx="5" style="animation:eq 1.4s ease-in-out -0.51s infinite;"/>
+        <rect class="bar" x="706"  y="100" width="10" height="160" rx="5" style="animation:eq 1.4s ease-in-out -0.63s infinite;"/>
+        <rect class="bar" x="728"  y="146" width="10" height="68"  rx="5" style="animation:eq 1.4s ease-in-out -0.75s infinite;"/>
+        <rect class="bar" x="750"  y="76"  width="10" height="208" rx="5" style="animation:eq 1.4s ease-in-out -0.87s infinite;"/>
+        <rect class="bar" x="772"  y="118" width="10" height="124" rx="5" style="animation:eq 1.4s ease-in-out -0.99s infinite;"/>
+        <rect class="bar" x="794"  y="154" width="10" height="52"  rx="5" style="animation:eq 1.4s ease-in-out -1.11s infinite;"/>
+        <rect class="bar" x="816"  y="88"  width="10" height="184" rx="5" style="animation:eq 1.4s ease-in-out -1.23s infinite;"/>
+        <rect class="bar" x="838"  y="130" width="10" height="100" rx="5" style="animation:eq 1.4s ease-in-out -0.09s infinite;"/>
+        <rect class="bar" x="860"  y="68"  width="10" height="224" rx="5" style="animation:eq 1.4s ease-in-out -0.21s infinite;"/>
+        <rect class="bar" x="882"  y="136" width="10" height="88"  rx="5" style="animation:eq 1.4s ease-in-out -0.33s infinite;"/>
+        <rect class="bar" x="904"  y="104" width="10" height="152" rx="5" style="animation:eq 1.4s ease-in-out -0.45s infinite;"/>
+        <rect class="bar" x="926"  y="150" width="10" height="60"  rx="5" style="animation:eq 1.4s ease-in-out -0.57s infinite;"/>
+        <rect class="bar" x="948"  y="80"  width="10" height="200" rx="5" style="animation:eq 1.4s ease-in-out -0.69s infinite;"/>
+        <rect class="bar" x="970"  y="120" width="10" height="120" rx="5" style="animation:eq 1.4s ease-in-out -0.81s infinite;"/>
+        <rect class="bar" x="992"  y="70"  width="10" height="220" rx="5" style="animation:eq 1.4s ease-in-out -0.93s infinite;"/>
+        <rect class="bar" x="1014" y="142" width="10" height="76"  rx="5" style="animation:eq 1.4s ease-in-out -1.05s infinite;"/>
+        <rect class="bar" x="1036" y="94"  width="10" height="172" rx="5" style="animation:eq 1.4s ease-in-out -1.17s infinite;"/>
+        <rect class="bar" x="1058" y="132" width="10" height="96"  rx="5" style="animation:eq 1.4s ease-in-out -1.29s infinite;"/>
+        <rect class="bar" x="1080" y="62"  width="10" height="236" rx="5" style="animation:eq 1.4s ease-in-out -0.05s infinite;"/>
+        <rect class="bar" x="1102" y="126" width="10" height="108" rx="5" style="animation:eq 1.4s ease-in-out -0.17s infinite;"/>
+        <rect class="bar" x="1124" y="98"  width="10" height="164" rx="5" style="animation:eq 1.4s ease-in-out -0.29s infinite;"/>
+        <rect class="bar" x="1146" y="148" width="10" height="64"  rx="5" style="animation:eq 1.4s ease-in-out -0.41s infinite;"/>
+        <rect class="bar" x="1168" y="86"  width="10" height="188" rx="5" style="animation:eq 1.4s ease-in-out -0.53s infinite;"/>
+      </g>
+
+      <!-- ORANGE played layer: identical bars, revealed by sweeping clip -->
+      <clipPath id="reveal">
+        <rect x="90" y="0" width="0" height="360">
+          <animate class="anim" attributeName="width"
+                   values="0;1088;1088;0"
+                   keyTimes="0;0.85;0.92;1"
+                   dur="7s" repeatCount="indefinite"/>
+        </rect>
+      </clipPath>
+      <g fill="url(#played)" clip-path="url(#reveal)">
+        <rect class="bar" x="90"   y="120" width="10" height="120" rx="5" style="animation:eq 1.4s ease-in-out -0.00s infinite;"/>
+        <rect class="bar" x="112"  y="96"  width="10" height="168" rx="5" style="animation:eq 1.4s ease-in-out -0.12s infinite;"/>
+        <rect class="bar" x="134"  y="140" width="10" height="80"  rx="5" style="animation:eq 1.4s ease-in-out -0.24s infinite;"/>
+        <rect class="bar" x="156"  y="72"  width="10" height="216" rx="5" style="animation:eq 1.4s ease-in-out -0.36s infinite;"/>
+        <rect class="bar" x="178"  y="110" width="10" height="140" rx="5" style="animation:eq 1.4s ease-in-out -0.48s infinite;"/>
+        <rect class="bar" x="200"  y="150" width="10" height="60"  rx="5" style="animation:eq 1.4s ease-in-out -0.60s infinite;"/>
+        <rect class="bar" x="222"  y="84"  width="10" height="192" rx="5" style="animation:eq 1.4s ease-in-out -0.72s infinite;"/>
+        <rect class="bar" x="244"  y="126" width="10" height="108" rx="5" style="animation:eq 1.4s ease-in-out -0.84s infinite;"/>
+        <rect class="bar" x="266"  y="60"  width="10" height="240" rx="5" style="animation:eq 1.4s ease-in-out -0.96s infinite;"/>
+        <rect class="bar" x="288"  y="132" width="10" height="96"  rx="5" style="animation:eq 1.4s ease-in-out -1.08s infinite;"/>
+        <rect class="bar" x="310"  y="102" width="10" height="156" rx="5" style="animation:eq 1.4s ease-in-out -1.20s infinite;"/>
+        <rect class="bar" x="332"  y="144" width="10" height="72"  rx="5" style="animation:eq 1.4s ease-in-out -1.32s infinite;"/>
+        <rect class="bar" x="354"  y="78"  width="10" height="204" rx="5" style="animation:eq 1.4s ease-in-out -0.06s infinite;"/>
+        <rect class="bar" x="376"  y="116" width="10" height="128" rx="5" style="animation:eq 1.4s ease-in-out -0.18s infinite;"/>
+        <rect class="bar" x="398"  y="156" width="10" height="48"  rx="5" style="animation:eq 1.4s ease-in-out -0.30s infinite;"/>
+        <rect class="bar" x="420"  y="90"  width="10" height="180" rx="5" style="animation:eq 1.4s ease-in-out -0.42s infinite;"/>
+        <rect class="bar" x="442"  y="128" width="10" height="104" rx="5" style="animation:eq 1.4s ease-in-out -0.54s infinite;"/>
+        <rect class="bar" x="464"  y="66"  width="10" height="228" rx="5" style="animation:eq 1.4s ease-in-out -0.66s infinite;"/>
+        <rect class="bar" x="486"  y="138" width="10" height="84"  rx="5" style="animation:eq 1.4s ease-in-out -0.78s infinite;"/>
+        <rect class="bar" x="508"  y="106" width="10" height="148" rx="5" style="animation:eq 1.4s ease-in-out -0.90s infinite;"/>
+        <rect class="bar" x="530"  y="148" width="10" height="64"  rx="5" style="animation:eq 1.4s ease-in-out -1.02s infinite;"/>
+        <rect class="bar" x="552"  y="74"  width="10" height="212" rx="5" style="animation:eq 1.4s ease-in-out -1.14s infinite;"/>
+        <rect class="bar" x="574"  y="122" width="10" height="116" rx="5" style="animation:eq 1.4s ease-in-out -1.26s infinite;"/>
+        <rect class="bar" x="596"  y="152" width="10" height="56"  rx="5" style="animation:eq 1.4s ease-in-out -0.03s infinite;"/>
+        <rect class="bar" x="618"  y="82"  width="10" height="196" rx="5" style="animation:eq 1.4s ease-in-out -0.15s infinite;"/>
+        <rect class="bar" x="640"  y="124" width="10" height="112" rx="5" style="animation:eq 1.4s ease-in-out -0.27s infinite;"/>
+        <rect class="bar" x="662"  y="64"  width="10" height="232" rx="5" style="animation:eq 1.4s ease-in-out -0.39s infinite;"/>
+        <rect class="bar" x="684"  y="134" width="10" height="92"  rx="5" style="animation:eq 1.4s ease-in-out -0.51s infinite;"/>
+        <rect class="bar" x="706"  y="100" width="10" height="160" rx="5" style="animation:eq 1.4s ease-in-out -0.63s infinite;"/>
+        <rect class="bar" x="728"  y="146" width="10" height="68"  rx="5" style="animation:eq 1.4s ease-in-out -0.75s infinite;"/>
+        <rect class="bar" x="750"  y="76"  width="10" height="208" rx="5" style="animation:eq 1.4s ease-in-out -0.87s infinite;"/>
+        <rect class="bar" x="772"  y="118" width="10" height="124" rx="5" style="animation:eq 1.4s ease-in-out -0.99s infinite;"/>
+        <rect class="bar" x="794"  y="154" width="10" height="52"  rx="5" style="animation:eq 1.4s ease-in-out -1.11s infinite;"/>
+        <rect class="bar" x="816"  y="88"  width="10" height="184" rx="5" style="animation:eq 1.4s ease-in-out -1.23s infinite;"/>
+        <rect class="bar" x="838"  y="130" width="10" height="100" rx="5" style="animation:eq 1.4s ease-in-out -0.09s infinite;"/>
+        <rect class="bar" x="860"  y="68"  width="10" height="224" rx="5" style="animation:eq 1.4s ease-in-out -0.21s infinite;"/>
+        <rect class="bar" x="882"  y="136" width="10" height="88"  rx="5" style="animation:eq 1.4s ease-in-out -0.33s infinite;"/>
+        <rect class="bar" x="904"  y="104" width="10" height="152" rx="5" style="animation:eq 1.4s ease-in-out -0.45s infinite;"/>
+        <rect class="bar" x="926"  y="150" width="10" height="60"  rx="5" style="animation:eq 1.4s ease-in-out -0.57s infinite;"/>
+        <rect class="bar" x="948"  y="80"  width="10" height="200" rx="5" style="animation:eq 1.4s ease-in-out -0.69s infinite;"/>
+        <rect class="bar" x="970"  y="120" width="10" height="120" rx="5" style="animation:eq 1.4s ease-in-out -0.81s infinite;"/>
+        <rect class="bar" x="992"  y="70"  width="10" height="220" rx="5" style="animation:eq 1.4s ease-in-out -0.93s infinite;"/>
+        <rect class="bar" x="1014" y="142" width="10" height="76"  rx="5" style="animation:eq 1.4s ease-in-out -1.05s infinite;"/>
+        <rect class="bar" x="1036" y="94"  width="10" height="172" rx="5" style="animation:eq 1.4s ease-in-out -1.17s infinite;"/>
+        <rect class="bar" x="1058" y="132" width="10" height="96"  rx="5" style="animation:eq 1.4s ease-in-out -1.29s infinite;"/>
+        <rect class="bar" x="1080" y="62"  width="10" height="236" rx="5" style="animation:eq 1.4s ease-in-out -0.05s infinite;"/>
+        <rect class="bar" x="1102" y="126" width="10" height="108" rx="5" style="animation:eq 1.4s ease-in-out -0.17s infinite;"/>
+        <rect class="bar" x="1124" y="98"  width="10" height="164" rx="5" style="animation:eq 1.4s ease-in-out -0.29s infinite;"/>
+        <rect class="bar" x="1146" y="148" width="10" height="64"  rx="5" style="animation:eq 1.4s ease-in-out -0.41s infinite;"/>
+        <rect class="bar" x="1168" y="86"  width="10" height="188" rx="5" style="animation:eq 1.4s ease-in-out -0.53s infinite;"/>
+      </g>
+    </g>
+
+    <!-- ===== playhead (SMIL sweep) ===== -->
+    <g>
+      <rect x="-2" y="40" width="4" height="280" fill="url(#phead)">
+        <animate attributeName="x" values="88;1176;1176;88"
+                 keyTimes="0;0.85;0.92;1" dur="7s" repeatCount="indefinite"/>
+      </rect>
+      <circle cx="90" cy="180" r="7" fill="#ffffff">
+        <animate attributeName="cx" values="90;1178;1178;90"
+                 keyTimes="0;0.85;0.92;1" dur="7s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="90" cy="180" r="13" fill="none" stroke="#ffb457" stroke-width="2" opacity="0.7">
+        <animate attributeName="cx" values="90;1178;1178;90"
+                 keyTimes="0;0.85;0.92;1" dur="7s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+
+    <!-- ===== left scrim + wordmark ===== -->
+    <rect x="0" y="0" width="560" height="360" fill="url(#scrim)"/>
+
+    <g font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif">
+      <!-- small mark: three mini bars -->
+      <g>
+        <rect x="60" y="128" width="7" height="24" rx="3.5" fill="#5eead4"/>
+        <rect x="71" y="116" width="7" height="48" rx="3.5" fill="#7dd3c8"/>
+        <rect x="82" y="134" width="7" height="12" rx="3.5" fill="#f9703e"/>
+      </g>
+
+      <text x="104" y="158" font-size="58" font-weight="800" fill="#f0f6fc" letter-spacing="-1">
+        wavesurfer<tspan fill="#f9703e">.js</tspan>
+      </text>
+      <text x="106" y="200" font-size="24" font-weight="500" fill="#9fb2c4" letter-spacing="0.3">
+        Audio waveform player
+      </text>
+      <text x="106" y="232" font-size="15.5" font-weight="400" fill="#6e7f92" letter-spacing="0.4">
+        Interactive waveforms from any audio, right in the browser
+      </text>
+    </g>
+  </g>
+
+  <!-- crisp rounded border -->
+  <rect x="0.5" y="0.5" width="1279" height="359" rx="20" ry="20" fill="none" stroke="#30363d" stroke-width="1"/>
+</svg>

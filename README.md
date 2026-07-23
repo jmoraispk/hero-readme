@@ -93,7 +93,7 @@ skills/hero-readme/
 assets/hero.svg                           # this repo's own hero (dogfooded)
 assets/examples/                          # the example banners above
 assets/variants/                          # alternative hero directions (How to use)
-assets/wild/                              # bespoke set for 103 repos (hero + 3 motifs each) + wild.md
+assets/wild/                              # 20 fully-bespoke, agent-authored heroes + wild.md
 assets/testing/                           # animated marketing motifs (concept lab)
 .claude-plugin/                           # plugin + marketplace manifests
 ```

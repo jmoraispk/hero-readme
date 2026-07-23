@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="axios — Promise based HTTP client for the browser and node.js. A request packet flies from a client to a server along an arc and a JSON response returns.">
+  <title>axios</title>
+  <desc>Promise based HTTP client for the browser and node.js. Animation shows a request packet traveling along an arc from a client to a server, then a JSON response returning on a lower arc — a full round trip.</desc>
+
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1280" height="360" rx="20"/></clipPath>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="0.55" stop-color="#12102b"/>
+      <stop offset="1" stop-color="#0d1117"/>
+    </linearGradient>
+
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#5a29e4"/>
+    </linearGradient>
+
+    <radialGradient id="glowNode" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8b5cf6" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#8b5cf6" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="reqGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#7c4dff"/>
+    </linearGradient>
+
+    <linearGradient id="resGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34d399"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+
+    <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+
+    <!-- request path (top arc): client -> server -->
+    <path id="arcReq" d="M 250 210 C 470 40, 810 40, 1030 210" fill="none"/>
+    <!-- response path (bottom arc): server -> client -->
+    <path id="arcRes" d="M 1030 232 C 810 320, 470 320, 250 232" fill="none"/>
+
+    <style>
+      .twinkle { animation: tw 3.2s ease-in-out infinite; }
+      .twinkle2 { animation: tw 2.4s ease-in-out infinite; animation-delay: .8s; }
+      @keyframes tw { 0%,100%{opacity:.25} 50%{opacity:.9} }
+      .pulse { animation: pl 2.6s ease-in-out infinite; transform-origin: center; }
+      .pulse2 { animation: pl 2.6s ease-in-out infinite; animation-delay: 1.3s; transform-origin: center; }
+      @keyframes pl { 0%,100%{opacity:.5} 50%{opacity:1} }
+      .dash { stroke-dasharray: 6 10; animation: dashmove 1.6s linear infinite; }
+      @keyframes dashmove { to { stroke-dashoffset: -32; } }
+
+      /* Packets ride the arcs via CSS offset-path. Static resting state
+         (no animation) places each packet mid-arc, fully visible. */
+      .reqPkt {
+        offset-path: path('M 250 210 C 470 40, 810 40, 1030 210');
+        offset-rotate: 0deg; offset-distance: 45%;
+        animation: reqmove 5s ease-in-out infinite;
+      }
+      .resPkt {
+        offset-path: path('M 1030 232 C 810 320, 470 320, 250 232');
+        offset-rotate: 0deg; offset-distance: 55%;
+        animation: resmove 5s ease-in-out infinite;
+      }
+      @keyframes reqmove {
+        0%   { offset-distance:0%;   opacity:0; }
+        5%   { opacity:1; }
+        40%  { offset-distance:100%; opacity:1; }
+        46%  { offset-distance:100%; opacity:0; }
+        100% { offset-distance:100%; opacity:0; }
+      }
+      @keyframes resmove {
+        0%,50% { offset-distance:0%;   opacity:0; }
+        56%    { offset-distance:0%;   opacity:1; }
+        92%    { offset-distance:100%; opacity:1; }
+        97%    { offset-distance:100%; opacity:0; }
+        100%   { offset-distance:100%; opacity:0; }
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        .twinkle,.twinkle2,.pulse,.pulse2,.dash,.reqPkt,.resPkt{ animation:none; }
+        .reqPkt,.resPkt{ opacity:1; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect x="0" y="0" width="1280" height="360" fill="url(#bg)"/>
+
+    <!-- faint grid -->
+    <g stroke="#8b5cf6" stroke-opacity="0.06">
+      <line x1="0" y1="90" x2="1280" y2="90"/>
+      <line x1="0" y1="180" x2="1280" y2="180"/>
+      <line x1="0" y1="270" x2="1280" y2="270"/>
+      <line x1="320" y1="0" x2="320" y2="360"/>
+      <line x1="640" y1="0" x2="640" y2="360"/>
+      <line x1="960" y1="0" x2="960" y2="360"/>
+    </g>
+
+    <!-- starfield -->
+    <g fill="#c4b5fd">
+      <circle class="twinkle" cx="140" cy="70" r="1.6"/>
+      <circle class="twinkle2" cx="1180" cy="60" r="1.4"/>
+      <circle class="twinkle" cx="1090" cy="300" r="1.5"/>
+      <circle class="twinkle2" cx="200" cy="300" r="1.3"/>
+      <circle class="twinkle" cx="640" cy="34" r="1.4"/>
+      <circle class="twinkle2" cx="70" cy="180" r="1.3"/>
+      <circle class="twinkle" cx="1210" cy="200" r="1.4"/>
+    </g>
+
+    <!-- the two arc rails -->
+    <use href="#arcReq" stroke="url(#reqGrad)" stroke-width="2" stroke-opacity="0.30" class="dash"/>
+    <use href="#arcRes" stroke="url(#resGrad)" stroke-width="2" stroke-opacity="0.28" class="dash"/>
+
+    <!-- CLIENT node (left) -->
+    <g transform="translate(250,221)">
+      <circle r="60" fill="url(#glowNode)" class="pulse"/>
+      <rect x="-40" y="-30" width="80" height="60" rx="8" fill="#161b2e" stroke="url(#brand)" stroke-width="2"/>
+      <rect x="-31" y="-22" width="62" height="34" rx="3" fill="#0d1117" stroke="#8b5cf6" stroke-opacity="0.5"/>
+      <rect x="-31" y="16" width="62" height="6" rx="3" fill="#8b5cf6" fill-opacity="0.5"/>
+      <circle cx="-22" cy="-14" r="2.4" fill="#f87171"/>
+      <circle cx="-14" cy="-14" r="2.4" fill="#fbbf24"/>
+      <circle cx="-6" cy="-14" r="2.4" fill="#34d399"/>
+      <text x="0" y="52" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#c4b5fd">browser / node.js</text>
+    </g>
+
+    <!-- SERVER node (right) -->
+    <g transform="translate(1030,221)">
+      <circle r="60" fill="url(#glowNode)" class="pulse2"/>
+      <rect x="-34" y="-34" width="68" height="68" rx="8" fill="#161b2e" stroke="url(#resGrad)" stroke-width="2"/>
+      <rect x="-24" y="-24" width="48" height="12" rx="3" fill="#0d1117" stroke="#22d3ee" stroke-opacity="0.5"/>
+      <rect x="-24" y="-6" width="48" height="12" rx="3" fill="#0d1117" stroke="#22d3ee" stroke-opacity="0.5"/>
+      <rect x="-24" y="12" width="48" height="12" rx="3" fill="#0d1117" stroke="#22d3ee" stroke-opacity="0.5"/>
+      <circle cx="16" cy="-18" r="2.6" fill="#34d399"/>
+      <circle cx="16" cy="0" r="2.6" fill="#34d399"/>
+      <circle cx="16" cy="18" r="2.6" fill="#34d399"/>
+      <text x="0" y="52" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#7ee7d6">server / API</text>
+    </g>
+
+    <!-- REQUEST packet: GET flies along top arc toward the server -->
+    <g class="reqPkt">
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#a78bfa" stroke-opacity="0.35"/>
+      <rect x="-30" y="-15" width="60" height="30" rx="7" fill="#1e1640" stroke="url(#reqGrad)" stroke-width="1.6"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#c4b5fd">GET</text>
+    </g>
+
+    <!-- RESPONSE packet: 200 JSON returns along bottom arc to the client -->
+    <g class="resPkt">
+      <circle cx="0" cy="0" r="22" fill="none" stroke="#34d399" stroke-opacity="0.35"/>
+      <rect x="-40" y="-15" width="80" height="30" rx="7" fill="#0f2a26" stroke="url(#resGrad)" stroke-width="1.6"/>
+      <text x="0" y="5" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#7ee7d6">200 · JSON</text>
+    </g>
+
+    <!-- Wordmark scrim + text -->
+    <g>
+      <rect x="470" y="128" width="340" height="112" rx="16" fill="#0d1117" fill-opacity="0.55"/>
+      <text x="640" y="192" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="-1" fill="url(#brand)">axios</text>
+      <text x="640" y="224" text-anchor="middle" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#b7b3d6">Promise based HTTP client for the browser and node.js</text>
+    </g>
+
+    <!-- border -->
+    <rect x="1" y="1" width="1278" height="358" rx="20" fill="none" stroke="#8b5cf6" stroke-opacity="0.22" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img" aria-label="date-fns — Modern JavaScript date utility library. An animated clock sweeps its hand while a calendar ticks its dates forward.">
+  <title>date-fns</title>
+  <desc>Dark banner for date-fns, a modern JavaScript date utility library. A glowing clock face with a sweeping second hand sits beside a calendar whose date flips forward, illustrating time and dates in motion.</desc>
+
+  <defs>
+    <clipPath id="round">
+      <rect x="0" y="0" width="1280" height="360" rx="20"/>
+    </clipPath>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141019"/>
+      <stop offset="0.55" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#160b13"/>
+    </linearGradient>
+
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5aa8"/>
+      <stop offset="1" stop-color="#c026d3"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ff5aa8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ff5aa8" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="dial" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1c1622"/>
+      <stop offset="1" stop-color="#120d16"/>
+    </linearGradient>
+
+    <linearGradient id="scrim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0d1117" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <style>
+      .spin { transform-origin: 260px 180px; animation: spin 4s linear infinite; }
+      .min  { transform-origin: 260px 180px; animation: spin 48s linear infinite; }
+      .pulse { animation: pulse 2s ease-in-out infinite; transform-origin: 260px 180px; }
+
+      /* Each day number owns a non-overlapping quarter of an 8s cycle.
+         Base opacity is 0 so only the digit inside its own window is ever shown. */
+      .flip0, .flip1, .flip2, .flip3 { opacity: 0; }
+      .flip0 { animation: flip0 8s steps(1) infinite; }
+      .flip1 { animation: flip1 8s steps(1) infinite; }
+      .flip2 { animation: flip2 8s steps(1) infinite; }
+      .flip3 { animation: flip3 8s steps(1) infinite; }
+      .tick  { animation: tick 8s ease-in-out infinite; }
+
+      @keyframes spin { to { transform: rotate(360deg); } }
+      @keyframes pulse { 0%,100% { opacity: 0.85; } 50% { opacity: 0.25; } }
+
+      /* steps(1) holds each keyframe value, so transitions are instant with no crossfade. */
+      @keyframes flip0 { 0% { opacity: 1; } 25% { opacity: 0; } 100% { opacity: 0; } }
+      @keyframes flip1 { 0% { opacity: 0; } 25% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 0; } }
+      @keyframes flip2 { 0% { opacity: 0; } 50% { opacity: 1; } 75% { opacity: 0; } 100% { opacity: 0; } }
+      @keyframes flip3 { 0% { opacity: 0; } 75% { opacity: 1; } 100% { opacity: 1; } }
+
+      @keyframes tick {
+        0%, 22% { transform: translateY(0); }
+        24%, 25% { transform: translateY(-3px); }
+        27%, 47% { transform: translateY(0); }
+        49%, 50% { transform: translateY(-3px); }
+        52%, 72% { transform: translateY(0); }
+        74%, 75% { transform: translateY(-3px); }
+        77%, 97% { transform: translateY(0); }
+        99%, 100% { transform: translateY(-3px); }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .spin, .min, .pulse, .flip0, .flip1, .flip2, .flip3, .tick { animation: none; }
+        .flip0 { opacity: 1; }
+        .flip1, .flip2, .flip3 { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect x="0" y="0" width="1280" height="360" fill="url(#bg)"/>
+
+    <!-- faint tick-mark grid across the banner -->
+    <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
+      <line x1="0" y1="90"  x2="1280" y2="90"/>
+      <line x1="0" y1="180" x2="1280" y2="180"/>
+      <line x1="0" y1="270" x2="1280" y2="270"/>
+    </g>
+
+    <!-- ambient brand glow -->
+    <circle cx="260" cy="180" r="230" fill="url(#glow)"/>
+
+    <!-- ===================== CLOCK ===================== -->
+    <g>
+      <circle cx="260" cy="180" r="120" fill="url(#dial)" stroke="url(#brand)" stroke-width="3"/>
+      <circle cx="260" cy="180" r="120" fill="none" stroke="#ff5aa8" stroke-opacity="0.15" stroke-width="10"/>
+
+      <!-- hour ticks -->
+      <g stroke="#e7c9dd" stroke-width="3" stroke-linecap="round">
+        <line x1="260" y1="72"  x2="260" y2="88"/>
+        <line x1="260" y1="272" x2="260" y2="288"/>
+        <line x1="152" y1="180" x2="168" y2="180"/>
+        <line x1="352" y1="180" x2="368" y2="180"/>
+      </g>
+      <g stroke="#8a7d86" stroke-width="2" stroke-linecap="round" opacity="0.7">
+        <line x1="314" y1="86"  x2="322" y2="100"/>
+        <line x1="340" y1="126" x2="354" y2="134"/>
+        <line x1="340" y1="234" x2="354" y2="226"/>
+        <line x1="314" y1="274" x2="322" y2="260"/>
+        <line x1="206" y1="274" x2="198" y2="260"/>
+        <line x1="180" y1="234" x2="166" y2="226"/>
+        <line x1="180" y1="126" x2="166" y2="134"/>
+        <line x1="206" y1="86"  x2="198" y2="100"/>
+      </g>
+
+      <!-- hour hand -->
+      <line class="min" x1="260" y1="180" x2="260" y2="128" stroke="#f6d9e9" stroke-width="7" stroke-linecap="round"/>
+      <!-- minute hand -->
+      <line class="min" x1="260" y1="180" x2="316" y2="180" stroke="#f6d9e9" stroke-width="5" stroke-linecap="round"/>
+      <!-- sweeping second hand -->
+      <g class="spin">
+        <line x1="260" y1="196" x2="260" y2="82" stroke="url(#brand)" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="260" cy="82" r="5" fill="#ff5aa8"/>
+      </g>
+      <!-- pulsing trailing arc following the sweep -->
+      <path class="spin pulse" d="M 260 68 A 112 112 0 0 1 344 106" fill="none" stroke="#ff5aa8" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+
+      <circle cx="260" cy="180" r="9" fill="#ff5aa8"/>
+      <circle cx="260" cy="180" r="4" fill="#160b13"/>
+    </g>
+
+    <!-- ===================== CALENDAR ===================== -->
+    <g transform="translate(486,84)">
+      <rect x="0" y="0" width="150" height="150" rx="16" fill="#1c1622" stroke="url(#brand)" stroke-width="2.5"/>
+      <rect x="0" y="0" width="150" height="40" rx="16" fill="url(#brand)"/>
+      <rect x="0" y="24" width="150" height="16" fill="#c026d3"/>
+      <!-- rings -->
+      <rect x="34" y="-8" width="8" height="24" rx="4" fill="#e7c9dd"/>
+      <rect x="108" y="-8" width="8" height="24" rx="4" fill="#e7c9dd"/>
+      <text x="75" y="28" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="700" fill="#160b13">DATE-FNS</text>
+
+      <!-- flipping day numbers, one visible at a time -->
+      <g class="tick" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="62" font-weight="800" fill="#f6d9e9">
+        <text class="flip0" x="75" y="120">12</text>
+        <text class="flip1" x="75" y="120">13</text>
+        <text class="flip2" x="75" y="120">14</text>
+        <text class="flip3" x="75" y="120">15</text>
+      </g>
+    </g>
+
+    <!-- ===================== WORDMARK + TAGLINE ===================== -->
+    <rect x="700" y="120" width="540" height="130" rx="16" fill="url(#scrim)"/>
+    <g font-family="'Segoe UI', system-ui, sans-serif">
+      <text x="712" y="182" font-size="72" font-weight="800" fill="#ffffff">date-<tspan fill="#ff5aa8">fns</tspan></text>
+      <text x="716" y="224" font-size="24" font-weight="500" fill="#c9c2cc">Modern JavaScript date utility library</text>
+    </g>
+    <!-- small function-style accent under the wordmark -->
+    <text x="716" y="262" font-family="'Segoe UI', system-ui, monospace" font-size="17" fill="#ff8ac2" opacity="0.8">format(date, 'yyyy-MM-dd') · addDays · differenceInHours</text>
+
+    <!-- rounded border stroke -->
+    <rect x="1" y="1" width="1278" height="358" rx="19" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img" aria-label="Chart.js — simple yet flexible JavaScript charting. Bars rise and a line traces across a subtle grid.">
+  <title>Chart.js</title>
+  <desc>An animated hero banner: colorful bars grow up from a baseline and a smooth line chart traces left to right across a faint grid on a dark background, with the Chart.js wordmark and tagline.</desc>
+
+  <defs>
+    <clipPath id="rounded">
+      <rect x="0" y="0" width="1280" height="360" rx="20"/>
+    </clipPath>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0d1117"/>
+    </linearGradient>
+
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#36A2EB"/>
+      <stop offset="0.5" stop-color="#9966FF"/>
+      <stop offset="1"   stop-color="#FF6384"/>
+    </linearGradient>
+
+    <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9966FF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#9966FF" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="barA" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FF6384" stop-opacity="0.55"/><stop offset="1" stop-color="#FF6384"/></linearGradient>
+    <linearGradient id="barB" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#36A2EB" stop-opacity="0.55"/><stop offset="1" stop-color="#36A2EB"/></linearGradient>
+    <linearGradient id="barC" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFCE56" stop-opacity="0.55"/><stop offset="1" stop-color="#FFCE56"/></linearGradient>
+    <linearGradient id="barD" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#4BC0C0" stop-opacity="0.55"/><stop offset="1" stop-color="#4BC0C0"/></linearGradient>
+    <linearGradient id="barE" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#9966FF" stop-opacity="0.55"/><stop offset="1" stop-color="#9966FF"/></linearGradient>
+    <linearGradient id="barF" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FF9F40" stop-opacity="0.55"/><stop offset="1" stop-color="#FF9F40"/></linearGradient>
+    <linearGradient id="barG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FF6384" stop-opacity="0.55"/><stop offset="1" stop-color="#FF6384"/></linearGradient>
+    <linearGradient id="barH" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#36A2EB" stop-opacity="0.55"/><stop offset="1" stop-color="#36A2EB"/></linearGradient>
+
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#9966FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#9966FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0d1117" stop-opacity="0.92"/>
+      <stop offset="0.6" stop-color="#0d1117" stop-opacity="0.7"/>
+      <stop offset="1" stop-color="#0d1117" stop-opacity="0"/>
+    </linearGradient>
+
+    <style>
+      .grid-line { stroke:#8b949e; stroke-opacity:0.12; }
+      .bar { transform-box: fill-box; transform-origin: bottom; animation: grow 6s ease-in-out infinite; }
+      .b1{animation-delay:0s}.b2{animation-delay:.12s}.b3{animation-delay:.24s}.b4{animation-delay:.36s}
+      .b5{animation-delay:.48s}.b6{animation-delay:.6s}.b7{animation-delay:.72s}.b8{animation-delay:.84s}
+
+      @keyframes grow {
+        0%   { transform: scaleY(0); }
+        18%  { transform: scaleY(1); }
+        78%  { transform: scaleY(1); }
+        92%  { transform: scaleY(0); }
+        100% { transform: scaleY(0); }
+      }
+
+      .trace {
+        stroke-dasharray: 1180;
+        stroke-dashoffset: 1180;
+        animation: draw 6s ease-in-out infinite;
+      }
+      .fillmask { animation: fillIn 6s ease-in-out infinite; opacity:0; }
+      @keyframes draw {
+        0%   { stroke-dashoffset: 1180; }
+        45%  { stroke-dashoffset: 0; }
+        82%  { stroke-dashoffset: 0; }
+        100% { stroke-dashoffset: -1180; }
+      }
+      @keyframes fillIn {
+        0%,8% { opacity:0; }
+        45%   { opacity:1; }
+        82%   { opacity:1; }
+        100%  { opacity:0; }
+      }
+      .dot { animation: dot 6s ease-in-out infinite; }
+      @keyframes dot {
+        0%,6%  { opacity:0; }
+        45%    { opacity:1; }
+        82%    { opacity:1; }
+        100%   { opacity:0; }
+      }
+      .cursor { animation: cur 6s ease-in-out infinite; }
+      @keyframes cur {
+        0%   { transform: translateX(0); opacity:0; }
+        6%   { opacity:1; }
+        45%  { transform: translateX(760px); opacity:1; }
+        50%  { opacity:0; }
+        100% { transform: translateX(760px); opacity:0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bar, .trace, .fillmask, .dot, .cursor { animation: none !important; }
+        .bar { transform: scaleY(1) !important; }
+        .trace { stroke-dashoffset: 0 !important; }
+        .fillmask, .dot { opacity: 1 !important; }
+        .cursor { opacity: 0 !important; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#rounded)">
+    <rect width="1280" height="360" fill="url(#bg)"/>
+    <ellipse cx="820" cy="150" rx="520" ry="300" fill="url(#glow)"/>
+
+    <!-- subtle grid -->
+    <g class="grid">
+      <line class="grid-line" x1="80"  y1="300" x2="1200" y2="300"/>
+      <line class="grid-line" x1="80"  y1="240" x2="1200" y2="240"/>
+      <line class="grid-line" x1="80"  y1="180" x2="1200" y2="180"/>
+      <line class="grid-line" x1="80"  y1="120" x2="1200" y2="120"/>
+      <line class="grid-line" x1="80"  y1="60"  x2="1200" y2="60"/>
+      <line class="grid-line" x1="440" y1="40" x2="440" y2="300"/>
+      <line class="grid-line" x1="540" y1="40" x2="540" y2="300"/>
+      <line class="grid-line" x1="640" y1="40" x2="640" y2="300"/>
+      <line class="grid-line" x1="740" y1="40" x2="740" y2="300"/>
+      <line class="grid-line" x1="840" y1="40" x2="840" y2="300"/>
+      <line class="grid-line" x1="940" y1="40" x2="940" y2="300"/>
+      <line class="grid-line" x1="1040" y1="40" x2="1040" y2="300"/>
+      <line class="grid-line" x1="1140" y1="40" x2="1140" y2="300"/>
+      <!-- baseline -->
+      <line x1="80" y1="300" x2="1200" y2="300" stroke="#8b949e" stroke-opacity="0.35" stroke-width="1.5"/>
+    </g>
+
+    <!-- bars rising from baseline -->
+    <g>
+      <rect class="bar b1" x="424" y="176" width="36" height="124" rx="4" fill="url(#barA)"/>
+      <rect class="bar b2" x="524" y="120" width="36" height="180" rx="4" fill="url(#barB)"/>
+      <rect class="bar b3" x="624" y="212" width="36" height="88"  rx="4" fill="url(#barC)"/>
+      <rect class="bar b4" x="724" y="96"  width="36" height="204" rx="4" fill="url(#barD)"/>
+      <rect class="bar b5" x="824" y="152" width="36" height="148" rx="4" fill="url(#barE)"/>
+      <rect class="bar b6" x="924" y="72"  width="36" height="228" rx="4" fill="url(#barF)"/>
+      <rect class="bar b7" x="1024" y="140" width="36" height="160" rx="4" fill="url(#barG)"/>
+      <rect class="bar b8" x="1124" y="188" width="36" height="112" rx="4" fill="url(#barH)"/>
+    </g>
+
+    <!-- line chart tracing across -->
+    <g>
+      <path class="fillmask"
+        d="M440,210 C490,190 500,150 542,140 C590,128 610,180 640,190 C680,204 700,110 742,104 C790,98 800,168 840,158 C888,146 900,92 942,88 C990,84 1000,150 1042,150 C1090,150 1110,196 1142,200 L1142,300 L440,300 Z"
+        fill="url(#lineFill)"/>
+      <path class="trace"
+        d="M440,210 C490,190 500,150 542,140 C590,128 610,180 640,190 C680,204 700,110 742,104 C790,98 800,168 840,158 C888,146 900,92 942,88 C990,84 1000,150 1042,150 C1090,150 1110,196 1142,200"
+        fill="none" stroke="url(#line)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+      <!-- data points -->
+      <g fill="#0d1117" stroke-width="3">
+        <circle class="dot" cx="440"  cy="210" r="5" stroke="#36A2EB"/>
+        <circle class="dot" cx="542"  cy="140" r="5" stroke="#36A2EB"/>
+        <circle class="dot" cx="640"  cy="190" r="5" stroke="#9966FF"/>
+        <circle class="dot" cx="742"  cy="104" r="5" stroke="#9966FF"/>
+        <circle class="dot" cx="840"  cy="158" r="5" stroke="#9966FF"/>
+        <circle class="dot" cx="942"  cy="88"  r="5" stroke="#FF6384"/>
+        <circle class="dot" cx="1042" cy="150" r="5" stroke="#FF6384"/>
+        <circle class="dot" cx="1142" cy="200" r="5" stroke="#FF6384"/>
+      </g>
+
+      <!-- moving cursor line following the trace -->
+      <g class="cursor">
+        <line x1="440" y1="40" x2="440" y2="300" stroke="#c9d1d9" stroke-opacity="0.25" stroke-width="1.5"/>
+      </g>
+    </g>
+
+    <!-- left scrim behind text -->
+    <rect x="0" y="0" width="560" height="360" fill="url(#scrim)"/>
+
+    <!-- brand mark: mini doughnut echoing Chart.js segments -->
+    <g transform="translate(96,96)">
+      <circle cx="0" cy="0" r="26" fill="none" stroke="#1f2937" stroke-width="12"/>
+      <circle cx="0" cy="0" r="26" fill="none" stroke="#FF6384" stroke-width="12" stroke-dasharray="45 118" transform="rotate(-90)"/>
+      <circle cx="0" cy="0" r="26" fill="none" stroke="#36A2EB" stroke-width="12" stroke-dasharray="34 129" transform="rotate(-90) rotate(99)"/>
+      <circle cx="0" cy="0" r="26" fill="none" stroke="#FFCE56" stroke-width="12" stroke-dasharray="26 137" transform="rotate(-90) rotate(174)"/>
+      <circle cx="0" cy="0" r="26" fill="none" stroke="#4BC0C0" stroke-width="12" stroke-dasharray="30 133" transform="rotate(-90) rotate(232)"/>
+      <circle cx="0" cy="0" r="26" fill="none" stroke="#9966FF" stroke-width="12" stroke-dasharray="28 135" transform="rotate(-90) rotate(298)"/>
+    </g>
+
+    <!-- wordmark -->
+    <text x="150" y="112" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="58" font-weight="700" fill="#f0f6fc" letter-spacing="-1">
+      Chart<tspan fill="#FF6384">.js</tspan>
+    </text>
+
+    <text x="98" y="180" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="500" fill="#c9d1d9">
+      Simple yet flexible charting
+    </text>
+    <text x="98" y="214" font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="24" font-weight="500" fill="#c9d1d9">
+      for designers &amp; developers
+    </text>
+
+    <!-- chart-type tags -->
+    <g font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600">
+      <g>
+        <rect x="98"  y="256" width="72" height="28" rx="14" fill="#161b22" stroke="#FF6384" stroke-opacity="0.6"/>
+        <text x="134" y="275" fill="#FF6384" text-anchor="middle">Bar</text>
+      </g>
+      <g>
+        <rect x="180" y="256" width="76" height="28" rx="14" fill="#161b22" stroke="#36A2EB" stroke-opacity="0.6"/>
+        <text x="218" y="275" fill="#36A2EB" text-anchor="middle">Line</text>
+      </g>
+      <g>
+        <rect x="266" y="256" width="118" height="28" rx="14" fill="#161b22" stroke="#9966FF" stroke-opacity="0.6"/>
+        <text x="325" y="275" fill="#9966FF" text-anchor="middle">Doughnut</text>
+      </g>
+    </g>
+
+    <rect x="0.75" y="0.75" width="1278.5" height="358.5" rx="19.25" fill="none" stroke="#30363d" stroke-opacity="0.7" stroke-width="1.5"/>
+  </g>
+</svg>

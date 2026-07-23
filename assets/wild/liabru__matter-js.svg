@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img"
+     aria-label="matter-js: a 2D physics engine for the web. Colored circles and boxes fall under gravity and stack on the ground.">
+  <title>matter-js — a 2D physics engine for the web</title>
+  <desc>A dark banner showing a little physics playground: coral, teal, yellow and purple circles and boxes drop from above under gravity, bounce, and settle into stacks on a ground line, looping continuously. The wordmark "Matter.js" sits in the center with the tagline "A 2D physics engine for the web".</desc>
+
+  <defs>
+    <clipPath id="round">
+      <rect x="0" y="0" width="1280" height="360" rx="20" ry="20"/>
+    </clipPath>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f141c"/>
+      <stop offset="1" stop-color="#0a0d13"/>
+    </linearGradient>
+
+    <radialGradient id="glow" cx="0.5" cy="0.18" r="0.75">
+      <stop offset="0" stop-color="#f5564e" stop-opacity="0.20"/>
+      <stop offset="0.55" stop-color="#f5564e" stop-opacity="0.04"/>
+      <stop offset="1" stop-color="#f5564e" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="scrim" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#0a0d13" stop-opacity="0.92"/>
+      <stop offset="0.6" stop-color="#0a0d13" stop-opacity="0.72"/>
+      <stop offset="1" stop-color="#0a0d13" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1b2330"/>
+      <stop offset="1" stop-color="#10151d"/>
+    </linearGradient>
+
+    <style>
+      :root{
+        --red:#f5564e; --teal:#33c9b7; --yellow:#ffce54; --purple:#9b7bf0;
+      }
+      .piece{ animation: drop 5s cubic-bezier(.45,0,.55,1) infinite both; }
+      .mark{ fill:#0a0d13; opacity:.14; }
+      .hi{ fill:#ffffff; opacity:.16; }
+
+      @keyframes drop{
+        0%{   transform: translateY(-470px) rotate(calc(var(--rot,0deg) - 55deg)); opacity:0;
+              animation-timing-function: cubic-bezier(.4,0,.95,.55); }
+        5%{   opacity:1; }
+        42%{  transform: translateY(0) rotate(var(--rot,0deg));
+              animation-timing-function: cubic-bezier(.22,0,.35,1); }
+        50%{  transform: translateY(-20px) rotate(calc(var(--rot,0deg) + 3deg));
+              animation-timing-function: cubic-bezier(.4,0,.6,1); }
+        58%{  transform: translateY(0) rotate(var(--rot,0deg));
+              animation-timing-function: cubic-bezier(.3,0,.45,1); }
+        63%{  transform: translateY(-7px) rotate(var(--rot,0deg)); }
+        69%{  transform: translateY(0) rotate(var(--rot,0deg)); }
+        90%{  transform: translateY(0) rotate(var(--rot,0deg)); opacity:1; }
+        100%{ transform: translateY(0) rotate(var(--rot,0deg)); opacity:0; }
+      }
+
+      @keyframes glowpulse{
+        0%,100%{ opacity:.85; } 50%{ opacity:1; }
+      }
+      .gline{ animation: glowpulse 4s ease-in-out infinite; }
+
+      @media (prefers-reduced-motion: reduce){
+        .piece, .gline{ animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- backdrop -->
+    <rect x="0" y="0" width="1280" height="360" fill="url(#bg)"/>
+    <rect x="0" y="0" width="1280" height="360" fill="url(#glow)"/>
+
+    <!-- faint gravity grid -->
+    <g stroke="#ffffff" stroke-opacity="0.035">
+      <line x1="0" y1="70"  x2="1280" y2="70"/>
+      <line x1="0" y1="140" x2="1280" y2="140"/>
+      <line x1="0" y1="210" x2="1280" y2="210"/>
+      <line x1="0" y1="280" x2="1280" y2="280"/>
+    </g>
+
+    <!-- ground platform -->
+    <rect x="0" y="318" width="1280" height="42" fill="url(#ground)"/>
+    <rect class="gline" x="0" y="317" width="1280" height="2" fill="#f5564e" opacity=".85"/>
+
+    <!-- falling / stacked pieces -->
+    <!-- Left cluster -->
+    <g transform="translate(200,290)">
+      <g class="piece" style="--rot:-5deg; animation-delay:0s">
+        <rect x="-28" y="-28" width="56" height="56" rx="9" fill="#f5564e"/>
+        <rect class="hi" x="-28" y="-28" width="56" height="16" rx="8"/>
+      </g>
+    </g>
+    <g transform="translate(202,236)">
+      <g class="piece" style="--rot:4deg; animation-delay:-.6s">
+        <rect x="-26" y="-26" width="52" height="52" rx="9" fill="#33c9b7"/>
+        <rect class="hi" x="-26" y="-26" width="52" height="15" rx="8"/>
+      </g>
+    </g>
+    <g transform="translate(258,288)">
+      <g class="piece" style="--rot:0deg; animation-delay:-.3s">
+        <circle r="30" fill="#ffce54"/>
+        <circle class="mark" r="7" cx="0" cy="-15"/>
+      </g>
+    </g>
+    <g transform="translate(150,292)">
+      <g class="piece" style="--rot:0deg; animation-delay:-.95s">
+        <circle r="26" fill="#f5564e"/>
+        <circle class="mark" r="6" cx="0" cy="-13"/>
+      </g>
+    </g>
+
+    <!-- Center-low pieces (below the wordmark) -->
+    <g transform="translate(520,290)">
+      <g class="piece" style="--rot:0deg; animation-delay:-1.4s">
+        <circle r="28" fill="#9b7bf0"/>
+        <circle class="mark" r="6" cx="0" cy="-14"/>
+      </g>
+    </g>
+    <g transform="translate(660,290)">
+      <g class="piece" style="--rot:6deg; animation-delay:-.85s">
+        <rect x="-28" y="-28" width="56" height="56" rx="9" fill="#ffce54"/>
+        <rect class="hi" x="-28" y="-28" width="56" height="16" rx="8"/>
+      </g>
+    </g>
+    <g transform="translate(762,294)">
+      <g class="piece" style="--rot:0deg; animation-delay:-1.95s">
+        <circle r="24" fill="#33c9b7"/>
+        <circle class="mark" r="6" cx="0" cy="-12"/>
+      </g>
+    </g>
+
+    <!-- Right cluster -->
+    <g transform="translate(1080,290)">
+      <g class="piece" style="--rot:5deg; animation-delay:-.4s">
+        <rect x="-28" y="-28" width="56" height="56" rx="9" fill="#9b7bf0"/>
+        <rect class="hi" x="-28" y="-28" width="56" height="16" rx="8"/>
+      </g>
+    </g>
+    <g transform="translate(1072,237)">
+      <g class="piece" style="--rot:-6deg; animation-delay:-1.15s">
+        <rect x="-25" y="-25" width="50" height="50" rx="9" fill="#f5564e"/>
+        <rect class="hi" x="-25" y="-25" width="50" height="14" rx="8"/>
+      </g>
+    </g>
+    <g transform="translate(1010,288)">
+      <g class="piece" style="--rot:0deg; animation-delay:-.2s">
+        <circle r="30" fill="#33c9b7"/>
+        <circle class="mark" r="7" cx="0" cy="-15"/>
+      </g>
+    </g>
+    <g transform="translate(1132,292)">
+      <g class="piece" style="--rot:0deg; animation-delay:-1.6s">
+        <circle r="26" fill="#ffce54"/>
+        <circle class="mark" r="6" cx="0" cy="-13"/>
+      </g>
+    </g>
+
+    <!-- text scrim for legibility -->
+    <rect x="340" y="70" width="600" height="180" fill="url(#scrim)"/>
+
+    <!-- wordmark + tagline -->
+    <g font-family="'Segoe UI', system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif" text-anchor="middle">
+      <text x="640" y="168" font-size="72" font-weight="700" letter-spacing="-1.5">
+        <tspan fill="#f4f6f8">Matter</tspan><tspan fill="#f5564e">.js</tspan>
+      </text>
+      <text x="640" y="208" font-size="22" font-weight="500" letter-spacing="0.5" fill="#9aa7b6">
+        A 2D physics engine for the web
+      </text>
+    </g>
+
+    <!-- crisp rounded border -->
+    <rect x="1" y="1" width="1278" height="358" rx="19" ry="19" fill="none" stroke="#ffffff" stroke-opacity="0.06"/>
+  </g>
+</svg>

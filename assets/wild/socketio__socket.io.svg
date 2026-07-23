@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img"
+     aria-label="Socket.IO — realtime bidirectional event-based communication. Two nodes exchange pulses back and forth along a link.">
+  <title>Socket.IO</title>
+  <desc>Dark banner. Two glowing nodes are connected by a horizontal link. Event pulses travel back and forth between them in real time, illustrating bidirectional, event-based communication.</desc>
+
+  <defs>
+    <clipPath id="round">
+      <rect x="0" y="0" width="1280" height="360" rx="20"/>
+    </clipPath>
+
+    <!-- Background wash -->
+    <radialGradient id="bgGlowL" cx="24%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#132033"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgGlowR" cx="76%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#0f2a26"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Node gradients -->
+    <radialGradient id="nodeA" cx="38%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#8fd0ff"/>
+      <stop offset="45%" stop-color="#2f9be8"/>
+      <stop offset="100%" stop-color="#155b91"/>
+    </radialGradient>
+    <radialGradient id="nodeB" cx="38%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#8bffd6"/>
+      <stop offset="45%" stop-color="#2fd39b"/>
+      <stop offset="100%" stop-color="#12805c"/>
+    </radialGradient>
+
+    <!-- Link gradient -->
+    <linearGradient id="linkGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2f9be8"/>
+      <stop offset="50%" stop-color="#7fb8cf"/>
+      <stop offset="100%" stop-color="#2fd39b"/>
+    </linearGradient>
+
+    <linearGradient id="scrim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117" stop-opacity="0"/>
+      <stop offset="55%" stop-color="#0d1117" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#0d1117" stop-opacity="0.9"/>
+    </linearGradient>
+
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+
+    <style>
+      .pulseAB { animation: travelAB 2.6s ease-in-out infinite; }
+      .pulseBA { animation: travelBA 2.6s ease-in-out infinite; }
+      .pulseAB2 { animation: travelAB 2.6s ease-in-out infinite; animation-delay: 1.3s; }
+      .pulseBA2 { animation: travelBA 2.6s ease-in-out infinite; animation-delay: 1.3s; }
+      .breatheA { animation: breatheA 2.6s ease-in-out infinite; transform-origin: 300px 178px; }
+      .breatheB { animation: breatheB 2.6s ease-in-out infinite; transform-origin: 980px 178px; }
+      .wire { stroke-dasharray: 3 9; animation: flow 3s linear infinite; }
+
+      @keyframes travelAB {
+        0%   { transform: translateX(0px);   opacity: 0; }
+        8%   { transform: translateX(0px);   opacity: 1; }
+        44%  { transform: translateX(680px); opacity: 1; }
+        52%  { transform: translateX(680px); opacity: 0; }
+        100% { transform: translateX(680px); opacity: 0; }
+      }
+      /* Green pulse is authored at the CLIENT (cx=300); the base
+         server offset is baked into the keyframes so it starts at the
+         SERVER (x=980) and travels back to the CLIENT (x=300). */
+      @keyframes travelBA {
+        0%   { transform: translateX(680px); opacity: 0; }
+        50%  { transform: translateX(680px); opacity: 0; }
+        58%  { transform: translateX(680px); opacity: 1; }
+        94%  { transform: translateX(0px);   opacity: 1; }
+        100% { transform: translateX(0px);   opacity: 0; }
+      }
+      /* Client flares as it emits (~5%) and as the return pulse lands (~95%). */
+      @keyframes breatheA {
+        0%   { transform: scale(1); }
+        5%   { transform: scale(1.10); }
+        20%  { transform: scale(1); }
+        88%  { transform: scale(1); }
+        96%  { transform: scale(1.10); }
+        100% { transform: scale(1); }
+      }
+      /* Server flares as the incoming pulse lands and it emits back (~50%). */
+      @keyframes breatheB {
+        0%   { transform: scale(1); }
+        44%  { transform: scale(1); }
+        52%  { transform: scale(1.10); }
+        68%  { transform: scale(1); }
+        100% { transform: scale(1); }
+      }
+      @keyframes flow { to { stroke-dashoffset: -48; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        .pulseAB, .pulseBA, .pulseAB2, .pulseBA2,
+        .breatheA, .breatheB, .wire { animation: none; }
+        /* Static frame: one blue pulse left-of-centre travelling A->B,
+           one green pulse right-of-centre travelling B->A, both on the
+           link, so the finished still reads as bidirectional. */
+        .pulseAB, .pulseAB2 { transform: translateX(260px); opacity: 1; }
+        .pulseBA, .pulseBA2 { transform: translateX(420px); opacity: 1; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- Background -->
+    <rect width="1280" height="360" fill="#0d1117"/>
+    <rect width="1280" height="360" fill="url(#bgGlowL)"/>
+    <rect width="1280" height="360" fill="url(#bgGlowR)"/>
+
+    <!-- faint packet grid -->
+    <g fill="#8fb4c8" opacity="0.05">
+      <circle cx="150" cy="70" r="2"/><circle cx="420" cy="300" r="2"/>
+      <circle cx="640" cy="60" r="2"/><circle cx="1130" cy="300" r="2"/>
+      <circle cx="1180" cy="90" r="2"/><circle cx="90" cy="290" r="2"/>
+      <circle cx="860" cy="315" r="2"/><circle cx="720" cy="315" r="2"/>
+    </g>
+
+    <!-- ===== The link between two nodes ===== -->
+    <g>
+      <!-- base wire -->
+      <line x1="300" y1="178" x2="980" y2="178" stroke="url(#linkGrad)" stroke-width="4" opacity="0.35"/>
+      <!-- flowing dashed wire -->
+      <line class="wire" x1="300" y1="178" x2="980" y2="178" stroke="url(#linkGrad)" stroke-width="4" stroke-linecap="round" opacity="0.85"/>
+
+      <!-- direction labels on the link -->
+      <g fill="#7fb8cf" opacity="0.6" font-family="'Segoe UI', system-ui, -apple-system, Roboto, sans-serif" font-size="13" text-anchor="middle">
+        <text x="640" y="158">emit  &#8594;</text>
+        <text x="640" y="210">&#8592;  emit</text>
+      </g>
+
+      <!-- Pulse: A to B (blue) -->
+      <g class="pulseAB">
+        <circle cx="300" cy="178" r="9" fill="#8fd0ff" filter="url(#soft)" opacity="0.7"/>
+        <circle cx="300" cy="178" r="6" fill="#eaf6ff"/>
+      </g>
+      <g class="pulseAB2">
+        <circle cx="300" cy="178" r="7" fill="#8fd0ff" filter="url(#soft)" opacity="0.5"/>
+        <circle cx="300" cy="178" r="4.5" fill="#dff0ff"/>
+      </g>
+
+      <!-- Pulse: B to A (green). Authored at the CLIENT; the travelBA
+           keyframes offset it to the SERVER and animate it back. -->
+      <g class="pulseBA">
+        <circle cx="300" cy="178" r="9" fill="#8bffd6" filter="url(#soft)" opacity="0.7"/>
+        <circle cx="300" cy="178" r="6" fill="#e6fff5"/>
+      </g>
+      <g class="pulseBA2">
+        <circle cx="300" cy="178" r="7" fill="#8bffd6" filter="url(#soft)" opacity="0.5"/>
+        <circle cx="300" cy="178" r="4.5" fill="#daffee"/>
+      </g>
+    </g>
+
+    <!-- ===== Node A (client) ===== -->
+    <g class="breatheA">
+      <circle cx="300" cy="178" r="46" fill="#8fd0ff" opacity="0.18" filter="url(#soft)"/>
+      <circle cx="300" cy="178" r="34" fill="url(#nodeA)" stroke="#bfe3ff" stroke-width="2"/>
+      <circle cx="300" cy="178" r="12" fill="#eaf6ff" opacity="0.9"/>
+    </g>
+    <text x="300" y="252" text-anchor="middle" fill="#9ecbe8"
+          font-family="'Segoe UI', system-ui, -apple-system, Roboto, sans-serif" font-size="16" font-weight="600" letter-spacing="1">CLIENT</text>
+
+    <!-- ===== Node B (server) ===== -->
+    <g class="breatheB">
+      <circle cx="980" cy="178" r="46" fill="#8bffd6" opacity="0.18" filter="url(#soft)"/>
+      <circle cx="980" cy="178" r="34" fill="url(#nodeB)" stroke="#bff5e2" stroke-width="2"/>
+      <circle cx="980" cy="178" r="12" fill="#e6fff5" opacity="0.9"/>
+    </g>
+    <text x="980" y="252" text-anchor="middle" fill="#8fe6c6"
+          font-family="'Segoe UI', system-ui, -apple-system, Roboto, sans-serif" font-size="16" font-weight="600" letter-spacing="1">SERVER</text>
+
+    <!-- ===== Text block ===== -->
+    <rect x="0" y="272" width="1280" height="88" fill="url(#scrim)"/>
+    <g font-family="'Segoe UI', system-ui, -apple-system, Roboto, sans-serif" text-anchor="middle">
+      <text x="640" y="318" fill="#f4f8fb" font-size="42" font-weight="700" letter-spacing="0.5">
+        Socket<tspan fill="#2fd39b">.</tspan>IO
+      </text>
+      <text x="640" y="346" fill="#aab8c4" font-size="17" letter-spacing="0.4">
+        Realtime, bidirectional, event-based communication
+      </text>
+    </g>
+  </g>
+</svg>

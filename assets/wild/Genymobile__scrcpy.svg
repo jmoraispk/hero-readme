@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img" aria-label="scrcpy — mirror and control your Android device from your desktop" preserveAspectRatio="xMidYMid meet">
+  <title>scrcpy</title>
+  <desc>A phone on the left is mirrored onto a desktop monitor on the right. Frames stream across a connection, the monitor fills with the phone's screen, and a cursor controls the device — display and control your Android device.</desc>
+
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1280" height="360" rx="20"/></clipPath>
+    <clipPath id="phoneScreen"><rect x="86" y="86" width="128" height="228" rx="14"/></clipPath>
+    <clipPath id="monScreen"><rect x="812" y="96" width="340" height="176" rx="6"/></clipPath>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="0.55" stop-color="#0e1622"/>
+      <stop offset="1" stop-color="#0a1a16"/>
+    </linearGradient>
+    <linearGradient id="phoneUI" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1fb57a"/>
+      <stop offset="1" stop-color="#0e6d5b"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2ee6a0" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#2ee6a0" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#2ee6a0" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#1fb57a" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#1fb57a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7bffcf"/>
+      <stop offset="1" stop-color="#2ee6a0"/>
+    </linearGradient>
+
+    <style>
+      .fade{opacity:0}
+      .streamer{animation:fly 2.6s linear infinite}
+      .streamer:nth-of-type(2){animation-delay:.87s}
+      .streamer:nth-of-type(3){animation-delay:1.73s}
+      .fill{animation:reveal 5.2s ease-in-out infinite}
+      .cursor{animation:point 5.2s ease-in-out infinite}
+      .tap{transform-origin:center;animation:tapPulse 5.2s ease-in-out infinite}
+      .liveDot{animation:blink 1.6s steps(1) infinite}
+      .glowPulse{animation:breathe 4s ease-in-out infinite}
+      .scan{animation:scanmove 3.2s linear infinite}
+      @keyframes fly{
+        0%{transform:translate(0,0) scale(.5);opacity:0}
+        12%{opacity:1}
+        50%{transform:translate(280px,-24px) scale(.85)}
+        88%{opacity:1}
+        100%{transform:translate(560px,-52px) scale(1);opacity:0}
+      }
+      @keyframes reveal{
+        0%,8%{clip-path:inset(0 100% 0 0)}
+        42%,100%{clip-path:inset(0 0 0 0)}
+      }
+      @keyframes point{
+        0%{transform:translate(0,0);opacity:0}
+        20%{opacity:1}
+        40%{transform:translate(120px,20px)}
+        62%{transform:translate(210px,84px)}
+        82%{transform:translate(150px,120px)}
+        100%{transform:translate(60px,50px);opacity:1}
+      }
+      @keyframes tapPulse{
+        0%,54%{opacity:0;transform:scale(.2)}
+        60%{opacity:.8;transform:scale(.4)}
+        72%{opacity:0;transform:scale(1.6)}
+        100%{opacity:0}
+      }
+      @keyframes blink{0%,60%{opacity:1}61%,100%{opacity:.25}}
+      @keyframes breathe{0%,100%{opacity:.35}50%{opacity:.7}}
+      @keyframes scanmove{0%{transform:translateY(0)}100%{transform:translateY(176px)}}
+      @media (prefers-reduced-motion: reduce){
+        .streamer,.fill,.cursor,.tap,.liveDot,.glowPulse,.scan{animation:none!important}
+        .fill{clip-path:inset(0 0 0 0)!important}
+        .streamer{opacity:1!important}
+        .cursor{opacity:1!important}
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="1280" height="360" fill="url(#bg)"/>
+
+    <!-- faint grid -->
+    <g stroke="#1c2b33" stroke-width="1" opacity="0.4">
+      <line x1="0" y1="60" x2="1280" y2="60"/>
+      <line x1="0" y1="120" x2="1280" y2="120"/>
+      <line x1="0" y1="180" x2="1280" y2="180"/>
+      <line x1="0" y1="240" x2="1280" y2="240"/>
+      <line x1="0" y1="300" x2="1280" y2="300"/>
+    </g>
+
+    <!-- ambient glows -->
+    <ellipse class="glowPulse" cx="150" cy="200" rx="180" ry="180" fill="url(#glow)"/>
+    <ellipse class="glowPulse" cx="982" cy="184" rx="240" ry="200" fill="url(#glow)" style="animation-delay:2s"/>
+
+    <!-- ================= PHONE (source) ================= -->
+    <g>
+      <rect x="70" y="70" width="160" height="260" rx="26" fill="#12181f" stroke="#2ee6a0" stroke-width="2"/>
+      <rect x="86" y="86" width="128" height="228" rx="14" fill="#0a1014"/>
+      <g clip-path="url(#phoneScreen)">
+        <rect x="86" y="86" width="128" height="228" fill="url(#phoneUI)"/>
+        <rect x="86" y="86" width="128" height="34" fill="#0e6d5b"/>
+        <circle cx="150" cy="150" r="26" fill="#0a1014" opacity="0.25"/>
+        <rect x="104" y="196" width="92" height="12" rx="6" fill="#0a1014" opacity="0.22"/>
+        <rect x="104" y="216" width="66" height="12" rx="6" fill="#0a1014" opacity="0.22"/>
+        <rect x="104" y="252" width="92" height="34" rx="10" fill="#0a1014" opacity="0.2"/>
+        <!-- scan sweep on source -->
+        <rect class="scan" x="86" y="82" width="128" height="8" fill="#eafff6" opacity="0.35"/>
+      </g>
+      <rect x="130" y="76" width="40" height="6" rx="3" fill="#2ee6a0" opacity="0.6"/>
+      <text x="150" y="348" text-anchor="middle" font-family="'Segoe UI', system-ui, Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#8fb9ac">Android</text>
+    </g>
+
+    <!-- ================= CONNECTION / STREAM ================= -->
+    <line x1="238" y1="196" x2="808" y2="150" stroke="#173a30" stroke-width="2" stroke-dasharray="4 6"/>
+    <rect x="238" y="140" width="560" height="4" rx="2" fill="url(#beam)" transform="rotate(-4.7 238 142)" opacity="0.5"/>
+
+    <!-- streaming frames flying phone -> monitor -->
+    <g fill="none">
+      <rect class="streamer" x="238" y="176" width="34" height="52" rx="5" fill="#0e6d5b" stroke="#2ee6a0" stroke-width="1.5"/>
+      <rect class="streamer" x="238" y="176" width="34" height="52" rx="5" fill="#0e6d5b" stroke="#2ee6a0" stroke-width="1.5"/>
+      <rect class="streamer" x="238" y="176" width="34" height="52" rx="5" fill="#0e6d5b" stroke="#2ee6a0" stroke-width="1.5"/>
+    </g>
+
+    <!-- ================= MONITOR (mirror target) ================= -->
+    <g>
+      <rect x="796" y="80" width="372" height="208" rx="12" fill="#12181f" stroke="#294049" stroke-width="2"/>
+      <rect x="812" y="96" width="340" height="176" rx="6" fill="#0a1014"/>
+      <g clip-path="url(#monScreen)">
+        <!-- placeholder before mirror -->
+        <rect x="812" y="96" width="340" height="176" fill="#0c1319"/>
+        <text x="982" y="190" text-anchor="middle" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" fill="#33505c">awaiting device…</text>
+        <!-- mirrored phone content, revealed left-to-right -->
+        <g class="fill">
+          <rect x="812" y="96" width="340" height="176" fill="url(#phoneUI)"/>
+          <rect x="812" y="96" width="340" height="30" fill="#0e6d5b"/>
+          <circle cx="982" cy="176" r="30" fill="#0a1014" opacity="0.25"/>
+          <rect x="866" y="214" width="150" height="12" rx="6" fill="#0a1014" opacity="0.22"/>
+          <rect x="866" y="234" width="110" height="12" rx="6" fill="#0a1014" opacity="0.22"/>
+        </g>
+        <!-- tap ripple from cursor control -->
+        <circle class="tap" cx="960" cy="200" r="20" fill="none" stroke="#eafff6" stroke-width="2.5"/>
+      </g>
+      <!-- monitor stand -->
+      <rect x="962" y="288" width="40" height="26" fill="#1a232b"/>
+      <rect x="922" y="312" width="120" height="10" rx="5" fill="#294049"/>
+      <!-- live badge -->
+      <g>
+        <rect x="824" y="106" width="60" height="20" rx="10" fill="#0a1014" opacity="0.55"/>
+        <circle class="liveDot" cx="837" cy="116" r="4" fill="#ff5c5c"/>
+        <text x="848" y="120" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="700" fill="#eafff6">LIVE</text>
+      </g>
+    </g>
+
+    <!-- controlling cursor moving over the mirror -->
+    <g class="cursor">
+      <path d="M842 150 L842 176 L849 169 L854 180 L859 178 L854 167 L863 167 Z" fill="#ffffff" stroke="#0a1014" stroke-width="1"/>
+    </g>
+
+    <!-- ================= WORDMARK + TAGLINE ================= -->
+    <g>
+      <rect x="300" y="236" width="486" height="92" rx="14" fill="#0a0f14" opacity="0.72"/>
+      <text x="322" y="290" font-family="'Segoe UI', system-ui, Roboto, Helvetica, Arial, sans-serif" font-size="54" font-weight="800" letter-spacing="-1" fill="url(#wm)">scrcpy</text>
+      <text x="326" y="316" font-family="'Segoe UI', system-ui, Roboto, Helvetica, Arial, sans-serif" font-size="17" font-weight="500" fill="#b9d8cd">Display and control your Android device</text>
+    </g>
+
+    <rect x="1" y="1" width="1278" height="358" rx="20" fill="none" stroke="#1f3a33" stroke-width="2"/>
+  </g>
+</svg>

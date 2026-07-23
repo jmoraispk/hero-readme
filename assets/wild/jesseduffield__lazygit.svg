@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="lazygit — a simple terminal UI for git commands. A git commit graph grows node by node while a feature branch merges back into the main line.">
+  <title>lazygit</title>
+  <desc>Animated hero banner for lazygit, a simple terminal UI for git commands. Inside a terminal window, a green main branch grows commit by commit while a cyan feature branch peels off, advances, and merges back into a golden merge commit on the main line.</desc>
+
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1280" height="360" rx="20"/></clipPath>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="soft2" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="10"/></filter>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#070a0f"/>
+    </linearGradient>
+    <linearGradient id="mainG" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2ea043"/>
+      <stop offset="1" stop-color="#3fb950"/>
+    </linearGradient>
+    <linearGradient id="scrim" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#010409" stop-opacity="0.95"/>
+      <stop offset="0.7" stop-color="#010409" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#010409" stop-opacity="0"/>
+    </linearGradient>
+
+    <style>
+      .edge{fill:none;stroke-linecap:round;stroke-width:5;stroke-dasharray:1;stroke-dashoffset:0}
+      .node{transform-box:fill-box;transform-origin:center center}
+      .hash{font-family:ui-monospace,'Cascadia Code','Consolas',monospace;font-size:12px;fill:#6e7681}
+      .lbl{font-family:ui-monospace,'Cascadia Code','Consolas',monospace}
+      .mono{font-family:ui-monospace,'Cascadia Code','Consolas',monospace}
+      .wm{font-family:'Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif}
+
+      #graph{animation:cycle 10s linear infinite}
+      #e0{animation:d0 10s linear infinite}
+      #eAB{animation:dAB 10s linear infinite}
+      #eBC{animation:dBC 10s linear infinite}
+      #eCD{animation:dCD 10s linear infinite}
+      #eDE{animation:dDE 10s linear infinite}
+      #eBP{animation:dBP 10s linear infinite}
+      #ePQ{animation:dPQ 10s linear infinite}
+      #eQD{animation:dQD 10s linear infinite}
+      #nA{animation:popA 10s linear infinite}
+      #nB{animation:popB 10s linear infinite}
+      #nC{animation:popC 10s linear infinite}
+      #nD{animation:popD 10s linear infinite}
+      #nE{animation:popE 10s linear infinite}
+      #nP{animation:popP 10s linear infinite}
+      #nQ{animation:popQ 10s linear infinite}
+      #flashD{animation:flashD 10s linear infinite}
+      #cursor{animation:blink 1.06s steps(1) infinite}
+
+      @keyframes cycle{0%,88%{opacity:1}95%,100%{opacity:0}}
+      @keyframes d0{0%,2%{stroke-dashoffset:1}6%,100%{stroke-dashoffset:0}}
+      @keyframes dAB{0%,8%{stroke-dashoffset:1}13%,100%{stroke-dashoffset:0}}
+      @keyframes dBC{0%,16%{stroke-dashoffset:1}22%,100%{stroke-dashoffset:0}}
+      @keyframes dCD{0%,28%{stroke-dashoffset:1}34%,100%{stroke-dashoffset:0}}
+      @keyframes dDE{0%,51%{stroke-dashoffset:1}57%,100%{stroke-dashoffset:0}}
+      @keyframes dBP{0%,16%{stroke-dashoffset:1}25%,100%{stroke-dashoffset:0}}
+      @keyframes dPQ{0%,28%{stroke-dashoffset:1}34%,100%{stroke-dashoffset:0}}
+      @keyframes dQD{0%,38%{stroke-dashoffset:1}47%,100%{stroke-dashoffset:0}}
+
+      @keyframes popA{0%,5%{opacity:0;transform:scale(0)}6%{opacity:1;transform:scale(1.3)}8%,100%{opacity:1;transform:scale(1)}}
+      @keyframes popB{0%,13%{opacity:0;transform:scale(0)}14%{opacity:1;transform:scale(1.3)}16%,100%{opacity:1;transform:scale(1)}}
+      @keyframes popC{0%,22%{opacity:0;transform:scale(0)}23%{opacity:1;transform:scale(1.3)}25%,100%{opacity:1;transform:scale(1)}}
+      @keyframes popP{0%,25%{opacity:0;transform:scale(0)}26%{opacity:1;transform:scale(1.3)}28%,100%{opacity:1;transform:scale(1)}}
+      @keyframes popQ{0%,34%{opacity:0;transform:scale(0)}35%{opacity:1;transform:scale(1.3)}37%,100%{opacity:1;transform:scale(1)}}
+      @keyframes popD{0%,48%{opacity:0;transform:scale(0)}49%{opacity:1;transform:scale(1.4)}52%,100%{opacity:1;transform:scale(1)}}
+      @keyframes popE{0%,57%{opacity:0;transform:scale(0)}58%{opacity:1;transform:scale(1.3)}60%,100%{opacity:1;transform:scale(1)}}
+      @keyframes flashD{0%,48%{opacity:0;transform:scale(.4)}49%{opacity:.85;transform:scale(.55)}60%{opacity:0;transform:scale(2)}100%{opacity:0;transform:scale(2)}}
+      @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+      @media (prefers-reduced-motion: reduce){
+        #graph,#e0,#eAB,#eBC,#eCD,#eDE,#eBP,#ePQ,#eQD,
+        #nA,#nB,#nC,#nD,#nE,#nP,#nQ,#flashD,#cursor{animation:none}
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- backdrop -->
+    <rect width="1280" height="360" fill="url(#bg)"/>
+
+    <!-- terminal window -->
+    <rect x="40" y="44" width="1200" height="272" rx="14" fill="#010409" stroke="#30363d" stroke-width="1.5"/>
+    <!-- titlebar -->
+    <g>
+      <circle cx="66" cy="70" r="6" fill="#ff5f56"/>
+      <circle cx="88" cy="70" r="6" fill="#febc2e"/>
+      <circle cx="110" cy="70" r="6" fill="#28c840"/>
+      <text x="640" y="75" text-anchor="middle" class="lbl" font-size="14" fill="#6e7681">lazygit — git log --graph --all</text>
+    </g>
+    <line x1="40" y1="92" x2="1240" y2="92" stroke="#161b22" stroke-width="1.5"/>
+
+    <!-- ===== commit graph ===== -->
+    <g id="graph">
+      <!-- edges -->
+      <path id="e0"  class="edge" pathLength="1" stroke="url(#mainG)" d="M420,255 L470,255"/>
+      <path id="eAB" class="edge" pathLength="1" stroke="url(#mainG)" d="M470,255 L600,255"/>
+      <path id="eBC" class="edge" pathLength="1" stroke="url(#mainG)" d="M600,255 L730,255"/>
+      <path id="eCD" class="edge" pathLength="1" stroke="url(#mainG)" d="M730,255 L990,255"/>
+      <path id="eDE" class="edge" pathLength="1" stroke="url(#mainG)" d="M990,255 L1120,255"/>
+      <path id="eBP" class="edge" pathLength="1" stroke="#58a6ff" d="M600,255 C670,255 705,150 780,150"/>
+      <path id="ePQ" class="edge" pathLength="1" stroke="#58a6ff" d="M780,150 L910,150"/>
+      <path id="eQD" class="edge" pathLength="1" stroke="#58a6ff" d="M910,150 C985,150 990,190 990,255"/>
+
+      <!-- merge flash ring -->
+      <circle id="flashD" class="node" cx="990" cy="255" r="26" fill="none" stroke="#e3b341" stroke-width="3" opacity="0"/>
+
+      <!-- nodes -->
+      <g id="nP" class="node">
+        <circle cx="780" cy="150" r="17" fill="#58a6ff" opacity="0.28" filter="url(#soft)"/>
+        <circle cx="780" cy="150" r="11" fill="#0d1117" stroke="#58a6ff" stroke-width="4"/>
+      </g>
+      <g id="nQ" class="node">
+        <circle cx="910" cy="150" r="17" fill="#58a6ff" opacity="0.28" filter="url(#soft)"/>
+        <circle cx="910" cy="150" r="11" fill="#0d1117" stroke="#58a6ff" stroke-width="4"/>
+      </g>
+
+      <g id="nA" class="node">
+        <circle cx="470" cy="255" r="18" fill="#3fb950" opacity="0.3" filter="url(#soft)"/>
+        <circle cx="470" cy="255" r="12" fill="#0d1117" stroke="#3fb950" stroke-width="4"/>
+      </g>
+      <g id="nB" class="node">
+        <circle cx="600" cy="255" r="18" fill="#3fb950" opacity="0.3" filter="url(#soft)"/>
+        <circle cx="600" cy="255" r="12" fill="#0d1117" stroke="#3fb950" stroke-width="4"/>
+      </g>
+      <g id="nC" class="node">
+        <circle cx="730" cy="255" r="18" fill="#3fb950" opacity="0.3" filter="url(#soft)"/>
+        <circle cx="730" cy="255" r="12" fill="#0d1117" stroke="#3fb950" stroke-width="4"/>
+      </g>
+      <g id="nD" class="node">
+        <circle cx="990" cy="255" r="20" fill="#e3b341" opacity="0.35" filter="url(#soft2)"/>
+        <circle cx="990" cy="255" r="13" fill="#0d1117" stroke="#e3b341" stroke-width="4.5"/>
+      </g>
+      <g id="nE" class="node">
+        <circle cx="1120" cy="255" r="18" fill="#3fb950" opacity="0.3" filter="url(#soft)"/>
+        <circle cx="1120" cy="255" r="12" fill="#0d1117" stroke="#3fb950" stroke-width="4"/>
+      </g>
+
+      <!-- faint commit hashes -->
+      <text x="470" y="295" text-anchor="middle" class="hash">a3f19c</text>
+      <text x="780" y="128" text-anchor="middle" class="hash" fill="#58a6ff" opacity="0.55">feat/ui</text>
+      <text x="990" y="295" text-anchor="middle" class="hash" fill="#e3b341" opacity="0.7">merge ⟵</text>
+    </g>
+
+    <!-- ===== wordmark scrim + text ===== -->
+    <rect x="40" y="92" width="380" height="224" fill="url(#scrim)"/>
+    <g>
+      <text x="80" y="188" class="wm" font-size="66" font-weight="800" letter-spacing="-1">
+        <tspan fill="#e6edf3">lazy</tspan><tspan fill="#3fb950">git</tspan>
+      </text>
+      <text x="82" y="224" class="mono" font-size="16" fill="#8b949e">Simple terminal UI for git commands</text>
+      <rect id="cursor" x="410" y="210" width="11" height="18" fill="#3fb950"/>
+    </g>
+  </g>
+</svg>

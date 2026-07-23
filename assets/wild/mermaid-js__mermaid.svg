@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="mermaid — generate diagrams from markdown-like text. A few lines of diagram code on the left transform into a self-drawing flowchart on the right.">
+  <title>mermaid</title>
+  <desc>Animated hero banner for the mermaid project. On the left, a small block of markdown-like diagram code appears line by line. Glowing tokens flow rightward and assemble into a flowchart whose nodes pop in and whose arrows draw themselves, illustrating that mermaid generates diagrams from markdown-like text.</desc>
+
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1280" height="360" rx="20"/></clipPath>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#12151d"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF3670"/>
+      <stop offset="1" stop-color="#C77DFF"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FF3670" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#FF3670" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#8A63FF" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#8A63FF" stop-opacity="0"/>
+    </radialGradient>
+
+    <marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#FF5B86"/>
+    </marker>
+
+    <style>
+      .mono{font-family:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;}
+      .ui{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;}
+
+      .cl{opacity:1;animation:lineIn 10s ease infinite;}
+      .cl2{animation-delay:.4s;} .cl3{animation-delay:.8s;}
+      .cl4{animation-delay:1.2s;} .cl5{animation-delay:1.6s;}
+      @keyframes lineIn{
+        0%{opacity:0;transform:translateX(-9px);}
+        6%{opacity:1;transform:translateX(0);}
+        92%{opacity:1;transform:translateX(0);}
+        100%{opacity:0;transform:translateX(-9px);}
+      }
+
+      .caret{animation:blink 1s steps(1) infinite;}
+      @keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+
+      .spark{opacity:0;animation:fly 10s ease infinite;}
+      .s2{animation-delay:.18s;} .s3{animation-delay:.36s;} .s4{animation-delay:.54s;}
+      @keyframes fly{
+        0%,17%{opacity:0;transform:translate(0,0);}
+        20%{opacity:1;}
+        27%{opacity:1;}
+        31%,100%{opacity:0;transform:translate(214px,-72px);}
+      }
+
+      .node{transform-box:fill-box;transform-origin:center;opacity:1;animation:pop 10s ease infinite;}
+      .n1{animation-delay:0s;} .n2{animation-delay:.32s;} .n3{animation-delay:.64s;} .n4{animation-delay:.96s;}
+      @keyframes pop{
+        0%,22%{opacity:0;transform:scale(.42);}
+        30%{opacity:1;transform:scale(1.07);}
+        35%{transform:scale(1);}
+        92%{opacity:1;transform:scale(1);}
+        100%{opacity:0;transform:scale(.42);}
+      }
+
+      .edge{stroke-dashoffset:0;opacity:1;animation:draw 10s ease infinite;}
+      .e2{animation-delay:.2s;} .e3{animation-delay:.4s;} .e4{animation-delay:.6s;}
+      @keyframes draw{
+        0%,32%{stroke-dashoffset:100;opacity:0;}
+        36%{opacity:1;}
+        58%{stroke-dashoffset:0;}
+        92%{stroke-dashoffset:0;opacity:1;}
+        100%{stroke-dashoffset:100;opacity:0;}
+      }
+
+      .glow{animation:breathe 6s ease-in-out infinite;}
+      @keyframes breathe{0%,100%{opacity:.85;}50%{opacity:.45;}}
+
+      @media (prefers-reduced-motion: reduce){
+        .cl,.caret,.spark,.node,.edge,.glow{animation:none !important;}
+        .cl,.node,.edge{opacity:1 !important;}
+        .node{transform:scale(1) !important;}
+        .edge{stroke-dashoffset:0 !important;}
+        .caret{opacity:1 !important;}
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="1280" height="360" fill="url(#bg)"/>
+    <ellipse class="glow" cx="230" cy="120" rx="360" ry="260" fill="url(#glowA)"/>
+    <ellipse class="glow" cx="1010" cy="250" rx="380" ry="280" fill="url(#glowB)"/>
+
+    <!-- subtle grid -->
+    <g stroke="#ffffff" stroke-opacity="0.03">
+      <path d="M0 60 H1280 M0 120 H1280 M0 180 H1280 M0 240 H1280 M0 300 H1280"/>
+      <path d="M160 0 V360 M320 0 V360 M480 0 V360 M640 0 V360 M800 0 V360 M960 0 V360 M1120 0 V360"/>
+    </g>
+
+    <!-- Header -->
+    <text class="ui" x="50" y="52" font-size="38" font-weight="700" letter-spacing="0.5" fill="url(#brand)">mermaid</text>
+    <text class="ui" x="52" y="80" font-size="15.5" font-weight="500" fill="#9aa4b2">Generate diagrams from markdown-like text</text>
+
+    <!-- Left: code editor -->
+    <g>
+      <rect x="50" y="104" width="452" height="228" rx="12" fill="#0b0e14" stroke="#2b3240"/>
+      <rect x="50" y="104" width="452" height="30" rx="12" fill="#12161f"/>
+      <rect x="50" y="122" width="452" height="12" fill="#12161f"/>
+      <circle cx="70" cy="119" r="4.5" fill="#ff5f56"/>
+      <circle cx="86" cy="119" r="4.5" fill="#ffbd2e"/>
+      <circle cx="102" cy="119" r="4.5" fill="#27c93f"/>
+      <text class="mono" x="120" y="123" font-size="11.5" fill="#5b6472">diagram.mmd</text>
+
+      <g class="mono" font-size="15.5">
+        <!-- L1 -->
+        <text class="cl" x="72" y="172">
+          <tspan fill="#FF3670" font-weight="600">graph</tspan><tspan fill="#c77dff"> TD</tspan>
+        </text>
+        <!-- L2 -->
+        <text class="cl cl2" x="72" y="200">
+          <tspan fill="#8b94a3">  </tspan><tspan fill="#e6edf3">A</tspan><tspan fill="#79c0ff">[Idea]</tspan><tspan fill="#FF5B86"> --&gt; </tspan><tspan fill="#e6edf3">B</tspan><tspan fill="#c77dff">{Draft?}</tspan>
+        </text>
+        <!-- L3 -->
+        <text class="cl cl3" x="72" y="228">
+          <tspan fill="#8b94a3">  </tspan><tspan fill="#e6edf3">B</tspan><tspan fill="#FF5B86"> --&gt;</tspan><tspan fill="#ffd166">|yes|</tspan><tspan fill="#e6edf3"> C</tspan><tspan fill="#79c0ff">[Diagram]</tspan>
+        </text>
+        <!-- L4 -->
+        <text class="cl cl4" x="72" y="256">
+          <tspan fill="#8b94a3">  </tspan><tspan fill="#e6edf3">C</tspan><tspan fill="#FF5B86"> --&gt; </tspan><tspan fill="#e6edf3">D</tspan><tspan fill="#79c0ff">[Ship]</tspan>
+        </text>
+        <!-- L5 -->
+        <text class="cl cl5" x="72" y="284">
+          <tspan fill="#8b94a3">  </tspan><tspan fill="#e6edf3">B</tspan><tspan fill="#FF5B86"> --&gt;</tspan><tspan fill="#ffd166">|no|</tspan><tspan fill="#e6edf3"> A</tspan><tspan class="caret" fill="#FF3670"> ▍</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- transfer sparks -->
+    <g fill="url(#brand)">
+      <rect class="spark"    x="486" y="214" width="9" height="9" rx="2"/>
+      <rect class="spark s2" x="486" y="196" width="7" height="7" rx="2"/>
+      <rect class="spark s3" x="486" y="234" width="7" height="7" rx="2"/>
+      <rect class="spark s4" x="486" y="222" width="6" height="6" rx="2"/>
+    </g>
+
+    <!-- Right: flowchart -->
+    <g>
+      <!-- edges (drawn) -->
+      <g fill="none" stroke="#FF5B86" stroke-width="2.4" stroke-linecap="round" pathLength="100" stroke-dasharray="100">
+        <path class="edge"    d="M720,174 L720,209" marker-end="url(#ah)"/>
+        <path class="edge e2" d="M774,255 L876,255" marker-end="url(#ah)"/>
+        <path class="edge e3" d="M940,231 L940,178" marker-end="url(#ah)"/>
+        <path class="edge e4" d="M666,255 C600,232 600,176 656,152" marker-end="url(#ah)"/>
+      </g>
+
+      <!-- edge labels -->
+      <g class="ui" font-size="12.5" font-weight="600">
+        <g class="edge e2"><rect x="812" y="238" width="30" height="18" rx="4" fill="#0d1117"/><text x="827" y="251" text-anchor="middle" fill="#ffd166">yes</text></g>
+        <g class="edge e4"><rect x="586" y="196" width="26" height="18" rx="4" fill="#0d1117"/><text x="599" y="209" text-anchor="middle" fill="#ffd166">no</text></g>
+      </g>
+
+      <!-- Node A: Idea -->
+      <g class="node n1">
+        <rect x="660" y="126" width="120" height="48" rx="10" fill="#1b2130" stroke="#FF3670" stroke-width="2"/>
+        <text class="ui" x="720" y="155" text-anchor="middle" font-size="16" font-weight="600" fill="#f2f5f9">Idea</text>
+      </g>
+
+      <!-- Node B: Draft? diamond -->
+      <g class="node n2">
+        <path d="M720,209 L774,255 L720,301 L666,255 Z" fill="#1b2130" stroke="#c77dff" stroke-width="2"/>
+        <text class="ui" x="720" y="260" text-anchor="middle" font-size="15" font-weight="600" fill="#f2f5f9">Draft?</text>
+      </g>
+
+      <!-- Node C: Diagram -->
+      <g class="node n3">
+        <rect x="880" y="231" width="120" height="48" rx="10" fill="#1b2130" stroke="#FF3670" stroke-width="2"/>
+        <text class="ui" x="940" y="260" text-anchor="middle" font-size="16" font-weight="600" fill="#f2f5f9">Diagram</text>
+      </g>
+
+      <!-- Node D: Ship -->
+      <g class="node n4">
+        <rect x="880" y="126" width="120" height="48" rx="10" fill="#1b2130" stroke="#57d38c" stroke-width="2"/>
+        <text class="ui" x="940" y="155" text-anchor="middle" font-size="16" font-weight="600" fill="#f2f5f9">Ship</text>
+      </g>
+    </g>
+
+    <!-- caption -->
+    <text class="ui" x="1230" y="342" text-anchor="end" font-size="12.5" fill="#5b6472">text in · diagram out</text>
+
+    <rect x="1" y="1" width="1278" height="358" rx="19" fill="none" stroke="#ffffff" stroke-opacity="0.06"/>
+  </g>
+</svg>

@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" width="1280" height="360" role="img" aria-label="hyperfine — a command-line benchmarking tool. Three commands (find, grep, fd) race to a finish line while their run times tick up; fd wins as the fastest at 0.233 seconds.">
+  <title>hyperfine — command-line benchmarking tool</title>
+  <desc>A dark terminal-style banner. Three horizontal progress bars for the commands find, grep and fd race rightward toward a finish line. Each lane shows an elapsed-time counter that ticks upward. The fd command reaches the finish first and is marked the fastest at 0.233 s (1.00x), grep finishes at 1.436 s (6.2x) and find last at 2.282 s (9.8x).</desc>
+
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1280" height="360" rx="20"/></clipPath>
+    <clipPath id="odoClip" clipPathUnits="userSpaceOnUse"><rect x="0" y="0" width="96" height="30"/></clipPath>
+
+    <linearGradient id="gWord" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="gFind" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="gGrep" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="gFd" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#06b6d4"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="0.28" cy="0.1" r="0.9">
+      <stop offset="0" stop-color="#123041" stop-opacity="0.65"/>
+      <stop offset="0.55" stop-color="#0d1117" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+
+    <style>
+      .mono{font-family:'Cascadia Code','JetBrains Mono','SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;}
+      .sans{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;}
+
+      .bar{transform-box:fill-box;transform-origin:left center;}
+      .barFind{animation:grow-find 5s linear infinite;}
+      .barGrep{animation:grow-grep 5s linear infinite;}
+      .barFd{animation:grow-fd 5s linear infinite;}
+      @keyframes grow-find{0%{transform:scaleX(0)}80%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+      @keyframes grow-grep{0%{transform:scaleX(0)}50%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+      @keyframes grow-fd{0%{transform:scaleX(0)}20%{transform:scaleX(1)}100%{transform:scaleX(1)}}
+
+      .runner{transform:translateX(852px);}
+      .runFind{animation:run-find 5s linear infinite;}
+      .runGrep{animation:run-grep 5s linear infinite;}
+      .runFd{animation:run-fd 5s linear infinite;}
+      @keyframes run-find{0%{transform:translateX(0)}80%{transform:translateX(852px)}100%{transform:translateX(852px)}}
+      @keyframes run-grep{0%{transform:translateX(0)}50%{transform:translateX(852px)}100%{transform:translateX(852px)}}
+      @keyframes run-fd{0%{transform:translateX(0)}20%{transform:translateX(852px)}100%{transform:translateX(852px)}}
+
+      .odo{transform:translateY(-120px);}
+      .odoFind{animation:od-find 5s linear infinite;}
+      .odoGrep{animation:od-grep 5s linear infinite;}
+      .odoFd{animation:od-fd 5s linear infinite;}
+      @keyframes od-find{0%{transform:translateY(0)}80%{transform:translateY(-120px)}100%{transform:translateY(-120px)}}
+      @keyframes od-grep{0%{transform:translateY(0)}50%{transform:translateY(-120px)}100%{transform:translateY(-120px)}}
+      @keyframes od-fd{0%{transform:translateY(0)}20%{transform:translateY(-120px)}100%{transform:translateY(-120px)}}
+
+      .win{opacity:0.95;animation:winpop 5s linear infinite;}
+      @keyframes winpop{0%{opacity:0}18%{opacity:0}24%{opacity:0.95}40%{opacity:0.55}60%{opacity:0.95}100%{opacity:0.75}}
+      .medal{transform-box:fill-box;transform-origin:center;animation:medal 5s linear infinite;}
+      @keyframes medal{0%{opacity:0;transform:scale(0.3)}18%{opacity:0;transform:scale(0.3)}24%{opacity:1;transform:scale(1.25)}30%{transform:scale(1)}100%{opacity:1;transform:scale(1)}}
+
+      .flag{transform-box:fill-box;transform-origin:bottom left;animation:wave 2.2s ease-in-out infinite;}
+      @keyframes wave{0%,100%{transform:skewX(0deg)}50%{transform:skewX(-9deg)}}
+
+      .cursor{animation:blink 1.05s steps(1) infinite;}
+      @keyframes blink{50%{opacity:0}}
+      .d1{animation:dot 1.5s steps(1) infinite}
+      .d2{animation:dot 1.5s steps(1) infinite;animation-delay:.25s}
+      .d3{animation:dot 1.5s steps(1) infinite;animation-delay:.5s}
+      @keyframes dot{0%,60%{opacity:1}61%,100%{opacity:.15}}
+
+      @media (prefers-reduced-motion: reduce){
+        .bar,.runner,.odo,.win,.medal,.flag,.cursor,.d1,.d2,.d3{animation:none !important;}
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- backdrop -->
+    <rect x="0" y="0" width="1280" height="360" fill="#0d1117"/>
+    <rect x="0" y="0" width="1280" height="360" fill="url(#bgGlow)"/>
+    <rect x="0" y="0" width="1280" height="360" fill="none" stroke="#232a33" stroke-width="2" rx="20"/>
+
+    <!-- header -->
+    <text class="sans" x="56" y="74" font-size="44" font-weight="800" letter-spacing="-1" fill="url(#gWord)">hyperfine</text>
+    <text class="sans" x="58" y="101" font-size="16" fill="#9aa4b2">A command-line benchmarking tool</text>
+    <g class="mono" font-size="14" fill="#6e7681">
+      <text x="58" y="128">$ hyperfine 'find' 'grep' 'fd'</text>
+      <rect class="cursor" x="303" y="117" width="9" height="15" fill="#8b949e"/>
+    </g>
+
+    <!-- context tag (top right) -->
+    <g class="mono" font-size="13">
+      <text x="1224" y="58" text-anchor="end" fill="#6e7681">10 runs &#183; warmup &#183; mean &#177; &#963;</text>
+      <text x="1224" y="80" text-anchor="end" fill="#6e7681">shell benchmark<tspan class="d1" fill="#8b949e">.</tspan><tspan class="d2" fill="#8b949e">.</tspan><tspan class="d3" fill="#8b949e">.</tspan></text>
+    </g>
+
+    <!-- finish line + flag -->
+    <line x1="1100" y1="146" x2="1100" y2="330" stroke="#39424d" stroke-width="2" stroke-dasharray="4 6"/>
+    <g transform="translate(1092,150)">
+      <rect x="6" y="0" width="2.5" height="20" fill="#8b949e"/>
+      <g class="flag">
+        <rect x="8.5" y="0" width="26" height="18" fill="#e6edf3"/>
+        <g fill="#0d1117">
+          <rect x="8.5" y="0" width="6.5" height="6"/><rect x="21.5" y="0" width="6.5" height="6"/>
+          <rect x="15" y="6" width="6.5" height="6"/><rect x="28" y="6" width="6.5" height="6"/>
+          <rect x="8.5" y="12" width="6.5" height="6"/><rect x="21.5" y="12" width="6.5" height="6"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- ============ LANE 1: find (slowest) ============ -->
+    <g>
+      <rect x="56" y="155" width="180" height="32" rx="8" fill="#161b22" stroke="#f59e0b" stroke-opacity="0.4"/>
+      <text class="mono" x="80" y="176" font-size="17" fill="#f59e0b">$ find</text>
+      <rect x="248" y="156" width="852" height="30" rx="6" fill="#12171f" stroke="#232a33"/>
+      <rect class="bar barFind" x="248" y="156" width="852" height="30" rx="6" fill="url(#gFind)"/>
+      <g class="runner runFind">
+        <circle cx="248" cy="171" r="13" fill="#f59e0b" opacity="0.5" filter="url(#soft)"/>
+        <rect x="243" y="156" width="6" height="30" rx="3" fill="#ffd79a"/>
+      </g>
+      <g transform="translate(1108,156)">
+        <g clip-path="url(#odoClip)">
+          <g class="odo odoFind mono" font-size="17" fill="#f59e0b" text-anchor="end">
+            <text x="88" y="21">0.000</text>
+            <text x="88" y="51">0.570</text>
+            <text x="88" y="81">1.141</text>
+            <text x="88" y="111">1.711</text>
+            <text x="88" y="141">2.282</text>
+          </g>
+        </g>
+        <text class="mono" x="100" y="21" font-size="15" fill="#6e7681">s</text>
+      </g>
+      <g>
+        <rect x="1210" y="160" width="64" height="22" rx="11" fill="#f59e0b" fill-opacity="0.14"/>
+        <text class="mono" x="1242" y="176" font-size="13" text-anchor="middle" fill="#f5a524">9.8&#215;</text>
+      </g>
+    </g>
+
+    <!-- ============ LANE 2: grep (mid) ============ -->
+    <g>
+      <rect x="56" y="225" width="180" height="32" rx="8" fill="#161b22" stroke="#a78bfa" stroke-opacity="0.4"/>
+      <text class="mono" x="80" y="246" font-size="17" fill="#a78bfa">$ grep</text>
+      <rect x="248" y="226" width="852" height="30" rx="6" fill="#12171f" stroke="#232a33"/>
+      <rect class="bar barGrep" x="248" y="226" width="852" height="30" rx="6" fill="url(#gGrep)"/>
+      <g class="runner runGrep">
+        <circle cx="248" cy="241" r="13" fill="#a78bfa" opacity="0.5" filter="url(#soft)"/>
+        <rect x="243" y="226" width="6" height="30" rx="3" fill="#d8ccff"/>
+      </g>
+      <g transform="translate(1108,226)">
+        <g clip-path="url(#odoClip)">
+          <g class="odo odoGrep mono" font-size="17" fill="#a78bfa" text-anchor="end">
+            <text x="88" y="21">0.000</text>
+            <text x="88" y="51">0.359</text>
+            <text x="88" y="81">0.718</text>
+            <text x="88" y="111">1.077</text>
+            <text x="88" y="141">1.436</text>
+          </g>
+        </g>
+        <text class="mono" x="100" y="21" font-size="15" fill="#6e7681">s</text>
+      </g>
+      <g>
+        <rect x="1210" y="230" width="64" height="22" rx="11" fill="#a78bfa" fill-opacity="0.14"/>
+        <text class="mono" x="1242" y="246" font-size="13" text-anchor="middle" fill="#b9a4ff">6.2&#215;</text>
+      </g>
+    </g>
+
+    <!-- ============ LANE 3: fd (winner) ============ -->
+    <g>
+      <rect class="win" x="246" y="291" width="856" height="40" rx="10" fill="none" stroke="#34d399" stroke-width="2"/>
+      <rect x="56" y="295" width="180" height="32" rx="8" fill="#132a24" stroke="#34d399" stroke-opacity="0.7"/>
+      <text class="mono" x="80" y="316" font-size="17" fill="#34d399">$ fd</text>
+      <rect x="248" y="296" width="852" height="30" rx="6" fill="#12171f" stroke="#232a33"/>
+      <rect class="bar barFd" x="248" y="296" width="852" height="30" rx="6" fill="url(#gFd)"/>
+      <g class="runner runFd">
+        <circle cx="248" cy="311" r="14" fill="#34d399" opacity="0.6" filter="url(#soft)"/>
+        <rect x="243" y="296" width="6" height="30" rx="3" fill="#c8fff0"/>
+      </g>
+      <g transform="translate(1108,296)">
+        <g clip-path="url(#odoClip)">
+          <g class="odo odoFd mono" font-size="17" font-weight="700" fill="#34d399" text-anchor="end">
+            <text x="88" y="21">0.000</text>
+            <text x="88" y="51">0.058</text>
+            <text x="88" y="81">0.116</text>
+            <text x="88" y="111">0.175</text>
+            <text x="88" y="141">0.233</text>
+          </g>
+        </g>
+        <text class="mono" x="100" y="21" font-size="15" fill="#6e7681">s</text>
+      </g>
+      <g class="medal">
+        <rect x="1204" y="300" width="70" height="22" rx="11" fill="#34d399" fill-opacity="0.2" stroke="#34d399" stroke-opacity="0.55"/>
+        <text class="mono" x="1239" y="316" font-size="13" font-weight="700" text-anchor="middle" fill="#5eead4">&#9733; 1.00&#215;</text>
+      </g>
+    </g>
+
+    <!-- footer note -->
+    <text class="sans" x="56" y="349" font-size="13" fill="#5b626d">Statistical benchmarking across warmup runs &#183; fastest command wins</text>
+  </g>
+</svg>

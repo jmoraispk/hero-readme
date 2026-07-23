@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 360" role="img"
+     aria-label="Tesseract, an open source OCR engine. A scan bar sweeps across a page of text and the characters are recognized and extracted into a line of readable output.">
+  <title>Tesseract — Open Source OCR Engine</title>
+  <desc>A dark banner. On the left a document panel of dim text is swept top to bottom by a bright green scan bar; as it passes, each line is recognized and turns a crisp teal-green. On the right, the Tesseract wordmark sits above a terminal that types out the extracted line of text.</desc>
+
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1280" height="360" rx="20"/></clipPath>
+
+    <clipPath id="revealClip">
+      <rect class="reveal" x="70" y="60" width="560" height="242"/>
+    </clipPath>
+    <clipPath id="typeClip">
+      <rect class="type" x="712" y="270" width="470" height="34"/>
+    </clipPath>
+
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#0a1014"/>
+    </linearGradient>
+    <linearGradient id="reco" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2dd4bf"/>
+      <stop offset="1" stop-color="#5be36a"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#5eead4"/>
+      <stop offset="0.55" stop-color="#3fd06b"/>
+      <stop offset="1" stop-color="#a6f05a"/>
+    </linearGradient>
+    <linearGradient id="scanGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3fb950" stop-opacity="0"/>
+      <stop offset="0.72" stop-color="#3fb950" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#7cf08a" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111823"/>
+      <stop offset="1" stop-color="#0c121a"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+
+    <style>
+      .doc  { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; font-size: 19px; letter-spacing: 0.5px; }
+      .term { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+      .ui   { font-family: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif; }
+
+      .reveal { transform: scaleY(1); transform-box: fill-box; transform-origin: top;
+                animation: reveal 6.5s ease-in-out infinite; }
+      .scan   { transform: translateY(0); animation: scan 6.5s ease-in-out infinite; }
+      .type   { transform: scaleX(1); transform-box: fill-box; transform-origin: left;
+                animation: type 6.5s ease-in-out infinite; }
+      .caret  { transform: translateX(0); animation: caret 6.5s ease-in-out infinite; }
+      .cbar   { animation: blink 1s steps(1) infinite; }
+      .hyper  { transform-box: fill-box; transform-origin: center; animation: spin 14s linear infinite; }
+      .g1 { animation: fly1 6.5s ease-in-out infinite; }
+      .g2 { animation: fly2 6.5s ease-in-out infinite; }
+      .g3 { animation: fly3 6.5s ease-in-out infinite; }
+
+      @keyframes reveal { 0%{transform:scaleY(0)} 58%{transform:scaleY(1)} 100%{transform:scaleY(1)} }
+      @keyframes scan   { 0%{transform:translateY(0)} 58%{transform:translateY(240px)} 100%{transform:translateY(240px)} }
+      @keyframes type   { 0%,8%{transform:scaleX(0)} 62%{transform:scaleX(1)} 100%{transform:scaleX(1)} }
+      @keyframes caret  { 0%,8%{transform:translateX(0)} 62%{transform:translateX(300px)} 100%{transform:translateX(300px)} }
+      @keyframes blink  { 0%,49%{opacity:1} 50%,100%{opacity:0.12} }
+      @keyframes spin   { to { transform: rotate(360deg) } }
+      @keyframes fly1 { 0%,14%{opacity:0;transform:translate(0,0)} 22%{opacity:1} 40%{opacity:1} 52%{opacity:0;transform:translate(210px,120px)} 100%{opacity:0} }
+      @keyframes fly2 { 0%,30%{opacity:0;transform:translate(0,0)} 38%{opacity:1} 52%{opacity:1} 64%{opacity:0;transform:translate(150px,60px)} 100%{opacity:0} }
+      @keyframes fly3 { 0%,44%{opacity:0;transform:translate(0,0)} 52%{opacity:1} 66%{opacity:1} 78%{opacity:0;transform:translate(240px,150px)} 100%{opacity:0} }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal,.scan,.type,.caret,.cbar,.hyper,.g1,.g2,.g3 { animation: none; }
+        .scan { transform: translateY(240px); }
+        .g1,.g2,.g3 { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <!-- backdrop -->
+    <rect width="1280" height="360" fill="url(#bg)"/>
+    <ellipse cx="960" cy="150" rx="420" ry="300" fill="url(#halo)"/>
+
+    <!-- ================= LEFT: document being scanned ================= -->
+    <g>
+      <rect x="60" y="50" width="580" height="262" rx="14" fill="url(#panel)" stroke="#223041" stroke-width="1.5"/>
+      <!-- page header dots -->
+      <circle cx="82" cy="72" r="4" fill="#2d3b4d"/>
+      <circle cx="98" cy="72" r="4" fill="#2d3b4d"/>
+      <circle cx="114" cy="72" r="4" fill="#2d3b4d"/>
+      <text x="606" y="76" class="doc" font-size="12px" fill="#3a4b5e" text-anchor="end">page.tif</text>
+
+      <!-- document text: raw (dim) layer -->
+      <g class="doc" fill="#38485c">
+        <text x="92" y="118">Tesseract is an OCR engine</text>
+        <text x="92" y="150">with support for Unicode and</text>
+        <text x="92" y="182">the ability to recognize over</text>
+        <text x="92" y="214">100 languages out of the box.</text>
+        <text x="92" y="246">Use it directly or via an API</text>
+        <text x="92" y="278">to extract typed text as data.</text>
+      </g>
+      <!-- recognized (bright) layer, revealed behind the scan bar -->
+      <g class="doc" fill="url(#reco)" clip-path="url(#revealClip)">
+        <text x="92" y="118">Tesseract is an OCR engine</text>
+        <text x="92" y="150">with support for Unicode and</text>
+        <text x="92" y="182">the ability to recognize over</text>
+        <text x="92" y="214">100 languages out of the box.</text>
+        <text x="92" y="246">Use it directly or via an API</text>
+        <text x="92" y="278">to extract typed text as data.</text>
+      </g>
+
+      <!-- scan bar (sweeps top -> bottom) -->
+      <g class="scan">
+        <rect x="70" y="24" width="560" height="36" fill="url(#scanGlow)"/>
+        <rect x="70" y="59" width="560" height="2.4" fill="#7cf08a"/>
+        <rect x="70" y="59" width="560" height="2.4" fill="#c9ffd4" opacity="0.55"/>
+        <circle cx="70" cy="60" r="4" fill="#a6f05a"/>
+        <circle cx="630" cy="60" r="4" fill="#a6f05a"/>
+      </g>
+    </g>
+
+    <!-- extracted glyphs flying from page toward the terminal -->
+    <g class="term" font-size="18px" font-weight="700" fill="#5be36a">
+      <text class="g1" x="470" y="150">T</text>
+      <text class="g2" x="520" y="120">e</text>
+      <text class="g3" x="440" y="140">s</text>
+    </g>
+
+    <!-- ================= RIGHT: brand + extracted output ================= -->
+    <!-- rotating tesseract (hypercube) mark -->
+    <g class="hyper" fill="none" stroke="url(#brand)" stroke-width="2.4" stroke-linejoin="round">
+      <g transform="translate(722 118)">
+        <rect x="-34" y="-34" width="68" height="68" rx="4"/>
+        <rect x="-18" y="-18" width="36" height="36" rx="3" opacity="0.9"/>
+        <line x1="-34" y1="-34" x2="-18" y2="-18"/>
+        <line x1="34" y1="-34" x2="18" y2="-18"/>
+        <line x1="34" y1="34" x2="18" y2="18"/>
+        <line x1="-34" y1="34" x2="-18" y2="18"/>
+      </g>
+    </g>
+
+    <text x="778" y="112" class="ui" font-size="62px" font-weight="800" fill="url(#brand)" letter-spacing="1">Tesseract</text>
+    <text x="782" y="150" class="ui" font-size="22px" font-weight="600" fill="#c6d3e2">Open Source OCR Engine</text>
+
+    <!-- feature chips -->
+    <g class="ui" font-size="13px" font-weight="600">
+      <g transform="translate(782 172)">
+        <rect x="0" y="0" width="132" height="26" rx="13" fill="#132018" stroke="#2f5d3a"/>
+        <text x="66" y="17" fill="#8fe6a0" text-anchor="middle">100+ languages</text>
+      </g>
+      <g transform="translate(924 172)">
+        <rect x="0" y="0" width="96" height="26" rx="13" fill="#132018" stroke="#2f5d3a"/>
+        <text x="48" y="17" fill="#8fe6a0" text-anchor="middle">Unicode</text>
+      </g>
+      <g transform="translate(1030 172)">
+        <rect x="0" y="0" width="120" height="26" rx="13" fill="#132018" stroke="#2f5d3a"/>
+        <text x="60" y="17" fill="#8fe6a0" text-anchor="middle">LSTM engine</text>
+      </g>
+    </g>
+
+    <!-- terminal: extracted text types out -->
+    <g>
+      <rect x="694" y="228" width="500" height="86" rx="12" fill="#0b1219" stroke="#243447" stroke-width="1.5"/>
+      <text x="712" y="252" class="term" font-size="12px" font-weight="700" fill="#48607a" letter-spacing="2">OCR&#160;OUTPUT</text>
+      <text x="1178" y="252" class="term" font-size="12px" fill="#2f8f4f" text-anchor="end">99.4%</text>
+
+      <text x="712" y="296" class="term" font-size="20px" fill="#2c3d4f">Tesseract is an OCR engine</text>
+      <g clip-path="url(#typeClip)">
+        <text x="712" y="296" class="term" font-size="20px" fill="#5be36a">Tesseract is an OCR engine</text>
+      </g>
+      <g class="caret">
+        <rect class="cbar" x="712" y="281" width="11" height="20" fill="#5be36a" opacity="0.9"/>
+      </g>
+    </g>
+  </g>
+</svg>

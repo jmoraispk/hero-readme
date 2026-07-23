@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400" width="1200" height="400" role="img" aria-label="A terminal runs the hero-readme command and the generated hero appears as output" font-family="'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif"><defs><linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="0.5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient><clipPath id="frame"><rect width="1200" height="400" rx="18"/></clipPath></defs><style>.cmd{clip-path:inset(0 0 0 0)}.caret{opacity:1}.out{opacity:1}
+@media(prefers-reduced-motion:no-preference){.cmd{animation:type 7s steps(1) infinite}.caret{animation:blink 7s steps(1) infinite}.out{animation:show 7s ease-out infinite}}
+@keyframes type{0%{clip-path:inset(0 100% 0 0)}34%,100%{clip-path:inset(0 0 0 0)}}
+@keyframes blink{0%,32%{opacity:1}8%{opacity:0}16%{opacity:1}24%{opacity:0}38%,100%{opacity:0}}
+@keyframes show{0%,40%{opacity:0;transform:translateY(10px)}54%,92%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(10px)}}</style><g clip-path="url(#frame)"><rect width="1200" height="400" fill="#0d1117"/><rect x="150" y="52" width="900" height="300" rx="12" fill="#0b0e14" stroke="#2b333d" stroke-width="1.5"/>
+<circle cx="176" cy="78" r="5" fill="#3a434e"/><circle cx="194" cy="78" r="5" fill="#3a434e"/><circle cx="212" cy="78" r="5" fill="#3a434e"/>
+<line x1="150" y1="100" x2="1050" y2="100" stroke="#1c232c" stroke-width="1.5"/>
+<g class="cmd"><text x="182" y="146" font-size="26" font-family="'SF Mono',Consolas,Menlo,monospace" fill="#c3ccd6"><tspan fill="#7b8595">❯ </tspan>claude <tspan fill="#a78bfa">"/hero-readme"</tspan></text></g>
+<rect class="caret" x="590" y="126" width="12" height="26" fill="#a78bfa"/>
+<g class="out"><rect x="182" y="182" width="836" height="132" rx="10" fill="url(#accent)"/>
+<text x="600" y="242" text-anchor="middle" font-size="42" font-weight="800" letter-spacing="-1" fill="#fff">hero-readme</text>
+<text x="600" y="272" text-anchor="middle" font-size="17" font-weight="600" fill="#e9e2ff">authentic, animated hero for your README</text></g></g></svg>

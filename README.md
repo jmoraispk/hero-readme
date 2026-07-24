@@ -55,9 +55,7 @@ For any other agent, copy [`skills/hero-readme/`](skills/hero-readme) into its s
 
 > **You:** *"make an image for the top of the README"*
 
-It also triggers on *"add a hero/banner to my README"* or *"make my README look better."*
-
-**3. It reads your project and sketches a direction.** Because every hero is built from your real name, tagline, and tech, the skill can take it different ways — here, the same project as a wordmark, an aurora, and a terminal:
+**3. It reads your project and sketches a direction.** The format adapts to the tech:
 
 <p align="center">
   <img src="assets/variants/variant-wordmark.svg" width="32%">
@@ -65,7 +63,7 @@ It also triggers on *"add a hero/banner to my README"* or *"make my README look 
   <img src="assets/variants/variant-terminal.svg" width="32%">
 </p>
 
-It then **renders and independently reviews** the result — watching several animation frames for alignment, motion, and legibility — revises until it passes, commits the SVG to `assets/`, and wires it into your README. For fun, more animated marketing motifs live in the **[concept lab](assets/concept-lab.md)**.
+It then renders and independently reviews the result — watching several animation frames for alignment, motion, and legibility. Revises until tests pass, then commits the SVG to `assets/`, and wires it into your README. More animated marketing motifs live in the [concept lab](assets/concept-lab.md).
 
 <details>
 <summary><b>How it works</b> — the pipeline, for the curious</summary>

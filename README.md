@@ -55,7 +55,7 @@ For any other agent, copy [`skills/hero-readme/`](skills/hero-readme) into its s
 
 > **You:** *"make an image for the top of the README"*
 
-**3. It reads your project and sketches a direction.** The format adapts to the tech:
+**3. AI customizes designs based on the project content:**
 
 <p align="center">
   <img src="assets/testing/spotlight-scan.svg" width="32%">

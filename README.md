@@ -58,9 +58,9 @@ For any other agent, copy [`skills/hero-readme/`](skills/hero-readme) into its s
 **3. It reads your project and sketches a direction.** The format adapts to the tech:
 
 <p align="center">
-  <img src="assets/variants/variant-wordmark.svg" width="32%">
-  <img src="assets/variants/variant-aurora.svg" width="32%">
-  <img src="assets/variants/variant-terminal.svg" width="32%">
+  <img src="assets/testing/spotlight-scan.svg" width="32%">
+  <img src="assets/testing/boot-up.svg" width="32%">
+  <img src="assets/testing/typewriter.svg" width="32%">
 </p>
 
 It then renders and independently reviews the result — watching several animation frames for alignment, motion, and legibility. Revises until tests pass, then commits the SVG to `assets/`, and wires it into your README. More animated marketing motifs live in the [concept lab](assets/concept-lab.md).

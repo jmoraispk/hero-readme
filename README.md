@@ -23,25 +23,22 @@ Most README tools give you text and shields.io badges, or generic AI banner art 
 </p>
 
 <p align="center">
-  <a href="https://github.com/jmoraispk/codeaway">
-    <img src="assets/examples/codeaway.svg" alt="codeaway — keep your AI coding agent running" width="100%">
+  <a href="https://github.com/chartjs/Chart.js">
+    <img src="assets/wild/chartjs__Chart.js.svg" alt="Chart.js — animated charting" width="100%">
   </a>
 </p>
 
-…and **20 more in the wild** — check the **[wild gallery](assets/wild/wild.md)**.
+<p align="center">
+  <a href="https://github.com/liabru/matter-js">
+    <img src="assets/wild/liabru__matter-js.svg" alt="matter-js — a 2D physics engine for the web" width="100%">
+  </a>
+</p>
 
-|   |   |
-|:--:|:--:|
-| <a href="https://github.com/Genymobile/scrcpy"><img src="assets/wild/Genymobile__scrcpy.svg" width="100%" alt="scrcpy"></a><br>**scrcpy** · ⭐ 146k | <a href="https://github.com/d3/d3"><img src="assets/wild/d3__d3.svg" width="100%" alt="d3"></a><br>**d3** · ⭐ 110k |
-| <a href="https://github.com/axios/axios"><img src="assets/wild/axios__axios.svg" width="100%" alt="axios"></a><br>**axios** · ⭐ 107k | <a href="https://github.com/mrdoob/three.js"><img src="assets/wild/mrdoob__three.js.svg" width="100%" alt="three.js"></a><br>**three.js** · ⭐ 103k |
-| <a href="https://github.com/excalidraw/excalidraw"><img src="assets/wild/excalidraw__excalidraw.svg" width="100%" alt="excalidraw"></a><br>**excalidraw** · ⭐ 90k | <a href="https://github.com/jesseduffield/lazygit"><img src="assets/wild/jesseduffield__lazygit.svg" width="100%" alt="lazygit"></a><br>**lazygit** · ⭐ 80k |
-| <a href="https://github.com/mermaid-js/mermaid"><img src="assets/wild/mermaid-js__mermaid.svg" width="100%" alt="mermaid"></a><br>**mermaid** · ⭐ 79k | <a href="https://github.com/chartjs/Chart.js"><img src="assets/wild/chartjs__Chart.js.svg" width="100%" alt="Chart.js"></a><br>**Chart.js** · ⭐ 65k |
-| <a href="https://github.com/tesseract-ocr/tesseract"><img src="assets/wild/tesseract-ocr__tesseract.svg" width="100%" alt="tesseract"></a><br>**tesseract** · ⭐ 63k | <a href="https://github.com/socketio/socket.io"><img src="assets/wild/socketio__socket.io.svg" width="100%" alt="socket.io"></a><br>**socket.io** · ⭐ 61k |
-| <a href="https://github.com/Leaflet/Leaflet"><img src="assets/wild/Leaflet__Leaflet.svg" width="100%" alt="Leaflet"></a><br>**Leaflet** · ⭐ 42k | <a href="https://github.com/date-fns/date-fns"><img src="assets/wild/date-fns__date-fns.svg" width="100%" alt="date-fns"></a><br>**date-fns** · ⭐ 34k |
-| <a href="https://github.com/lovell/sharp"><img src="assets/wild/lovell__sharp.svg" width="100%" alt="sharp"></a><br>**sharp** · ⭐ 30k | <a href="https://github.com/sharkdp/hyperfine"><img src="assets/wild/sharkdp__hyperfine.svg" width="100%" alt="hyperfine"></a><br>**hyperfine** · ⭐ 28k |
-| <a href="https://github.com/liabru/matter-js"><img src="assets/wild/liabru__matter-js.svg" width="100%" alt="matter-js"></a><br>**matter-js** · ⭐ 17k | <a href="https://github.com/catppuccin/catppuccin"><img src="assets/wild/catppuccin__catppuccin.svg" width="100%" alt="catppuccin"></a><br>**catppuccin** · ⭐ 15k |
-| <a href="https://github.com/asciinema/asciinema"><img src="assets/wild/asciinema__asciinema.svg" width="100%" alt="asciinema"></a><br>**asciinema** · ⭐ 15k | <a href="https://github.com/katspaugh/wavesurfer.js"><img src="assets/wild/katspaugh__wavesurfer.js.svg" width="100%" alt="wavesurfer.js"></a><br>**wavesurfer.js** · ⭐ 9.0k |
-| <a href="https://github.com/ImageOptim/gifski"><img src="assets/wild/ImageOptim__gifski.svg" width="100%" alt="gifski"></a><br>**gifski** · ⭐ 7.0k | <a href="https://github.com/nayuki/QR-Code-generator"><img src="assets/wild/nayuki__QR-Code-generator.svg" width="100%" alt="QR-Code-generator"></a><br>**QR-Code-generator** · ⭐ 5.0k |
+<div align="center">
+
+### 👉 &nbsp; For 20 more examples, visit the [**Gallery**](assets/wild/wild.md) &nbsp; 👈
+
+</div>
 
 ## How to use
 

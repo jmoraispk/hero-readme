@@ -17,14 +17,14 @@ Most README tools give you text and shields.io badges, or generic AI banner art 
 </p>
 
 <p align="center">
-  <a href="https://github.com/jmoraispk/delta-review">
-    <img src="assets/examples/delta-review.svg" alt="Delta — GitLab MR reviews, minus the wait" width="100%">
+  <a href="https://github.com/chartjs/Chart.js">
+    <img src="assets/wild/chartjs__Chart.js.svg" alt="Chart.js — animated charting" width="100%">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/chartjs/Chart.js">
-    <img src="assets/wild/chartjs__Chart.js.svg" alt="Chart.js — animated charting" width="100%">
+  <a href="https://github.com/jmoraispk/delta-review">
+    <img src="assets/examples/delta-review.svg" alt="Delta — GitLab MR reviews, minus the wait" width="100%">
   </a>
 </p>
 
@@ -36,7 +36,7 @@ Most README tools give you text and shields.io badges, or generic AI banner art 
 
 <div align="center">
 
-### 👉 &nbsp; For 20 more examples, visit the [**Gallery**](assets/wild/wild.md) &nbsp; 👈
+### 👉 &nbsp; For 20+ examples, visit the [**Gallery**](assets/wild/wild.md) &nbsp; 👈
 
 </div>
 

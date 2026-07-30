@@ -13,7 +13,8 @@
       "source": "./",
       "description": "Generate an authentic, animated SVG hero image for your README — derived from what your project actually is, not generic AI art.",
       "version": "0.1.0",
-      "category": ["documentation", "productivity"]
+      "category": "documentation",
+      "tags": ["documentation", "productivity", "readme", "svg"]
     }
   ]
 }
